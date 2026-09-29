@@ -106,7 +106,7 @@ Action Plan
 Nex_Tech/
 │
 ├── index.html
-├── README.md
+└── README.md
 ```
 
 The current MVP is implemented as a lightweight client-side web application.
@@ -119,7 +119,7 @@ The current MVP is implemented as a lightweight client-side web application.
 
 ```bash
 git clone https://github.com/deepashreedm2k7-cmd/Nex_Tech.git
-cd YOUR_REPOSITORY
+cd Nex_Tech
 ```
 
 ### Open in VS Code
