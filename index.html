@@ -1,0 +1,1831 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nex_Tech — AI Career Coach, Resume, Skills, Learning & Mock Interviews</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3F5FA; --sheet:#FFFFFF; --ink:#172037; --muted:#5A6482; --line:#DAE0EC;
+  --cobalt:#2340E0; --mark:#FFE47A; --good:#137A56; --warn:#A96A00; --bad:#BC3A34;
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --body:'IBM Plex Sans','Segoe UI',system-ui,sans-serif;
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#12162A; --sheet:#1A2040; --ink:#E8EAF6; --muted:#9AA6C8; --line:#2C355A;
+    --cobalt:#6E8CFF; --mark:#C9A227; --good:#3FCF8E; --warn:#E0A83E; --bad:#F0645C;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12162A; --sheet:#1A2040; --ink:#E8EAF6; --muted:#9AA6C8; --line:#2C355A;
+  --cobalt:#6E8CFF; --mark:#C9A227; --good:#3FCF8E; --warn:#E0A83E; --bad:#F0645C;
+}
+*{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1rem/1.6 var(--body);-webkit-text-size-adjust:100%}
+h1,h2,h3{font-family:var(--display);line-height:1.15;margin:0 0 .6rem;letter-spacing:-.01em}
+h1{font-size:clamp(1.7rem,4vw,2.3rem);font-weight:700}
+h2{font-size:1.5rem;font-weight:700}
+h3{font-size:1.05rem;font-weight:600}
+p{margin:0 0 .8rem}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-999px}
+.skip:focus{left:8px;top:8px;background:#fff;padding:8px 12px;z-index:9}
+.top{background:var(--sheet);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px}
+.brand{font:700 1.35rem var(--display)}
+.brand span{background:linear-gradient(transparent 58%,var(--mark) 58%);padding:0 3px}
+.privacy{margin:0;color:var(--muted);font-size:.875rem;text-align:right}
+.steps{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-top:8px;overflow-x:auto}
+.tab{appearance:none;background:none;border:0;border-bottom:3px solid transparent;padding:14px 16px;font:600 .95rem var(--body);color:var(--muted);cursor:pointer;display:flex;gap:8px;align-items:center;white-space:nowrap}
+.tab .n{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--line);color:var(--ink);font-size:.8rem}
+.tab[aria-current=step]{color:var(--ink);border-bottom-color:var(--cobalt)}
+.tab[aria-current=step] .n{background:var(--cobalt);color:#fff}
+.tab:disabled{opacity:.45;cursor:not-allowed}
+.btn:focus-visible,.tab:focus-visible,summary:focus-visible,a:focus-visible,.drop:focus-within{outline:3px solid var(--cobalt);outline-offset:2px}
+.view{padding:28px 0 64px}
+.view[hidden]{display:none}
+.grid{display:grid;grid-template-columns:minmax(300px,360px) 1fr;gap:40px}
+@media(max-width:900px){.grid{grid-template-columns:1fr;gap:28px}}
+.lede{color:var(--muted)}
+.side label{display:block;font-weight:600;margin:16px 0 6px;font-size:.92rem}
+.side label.drop{display:flex;flex-direction:column;gap:2px;border:1.5px dashed #9AA6C8;border-radius:8px;padding:14px;background:var(--sheet);cursor:pointer;margin:16px 0 0;font-weight:400}
+.side label.drop span{color:var(--muted);font-size:.88rem}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+select,textarea{width:100%;font:inherit;color:inherit;background:var(--sheet);border:1px solid var(--line);border-radius:6px;padding:10px 12px}
+textarea{resize:vertical;line-height:1.5}
+select:focus,textarea:focus{outline:3px solid rgba(35,64,224,.3);border-color:var(--cobalt)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}
+.btn{font:600 .95rem var(--body);border-radius:6px;padding:10px 16px;border:1px solid var(--ink);background:var(--sheet);color:var(--ink);cursor:pointer}
+.btn.primary{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+.btn.ghost{border-color:#B9C2DA}
+.btn.live{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.note{font-size:.86rem;color:var(--muted);margin:8px 0 0}
+.note.bad{color:var(--bad)}
+details.ai-box{margin-top:22px;border-top:1px solid var(--line);padding-top:12px}
+details.ai-box summary{font-weight:600;cursor:pointer}
+.empty{border:1.5px dashed var(--line);border-radius:8px;padding:32px 24px;color:var(--muted);background:rgba(255,255,255,.5)}
+.empty h2{color:var(--ink)}
+.scorehead{display:flex;gap:20px;align-items:center;margin-bottom:8px}
+.score{display:flex;flex-direction:column;align-items:flex-start;min-width:96px}
+.score .big{font:700 3.6rem/1 var(--display)}
+.score .of{font-size:.85rem;color:var(--muted)}
+.meter{margin:10px 0}
+.meter-top{display:flex;justify-content:space-between;font-size:.92rem;font-weight:600}
+.track{height:10px;background:#E4E8F2;border-radius:5px;overflow:hidden;margin-top:4px}
+.track i{display:block;height:100%;border-radius:5px;transition:width .5s;background:var(--cobalt)}
+.track i.g{background:var(--good)} .track i.w{background:#D99A1C} .track i.b{background:var(--bad)}
+.hint{font-size:.82rem;color:var(--muted);margin:2px 0 0}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:24px 0}
+.col{padding:16px 18px;border-left:1px solid var(--line)}
+.col:first-child{border-left:0;padding-left:0}
+.col ul{margin:0;padding-left:18px;font-size:.92rem}
+.col li{margin-bottom:6px}
+.col h3::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;background:var(--c,var(--cobalt))}
+@media(max-width:760px){.cols{grid-template-columns:1fr}.col{border-left:0;border-top:1px solid var(--line);padding-left:0}.col:first-child{border-top:0}}
+.kw{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 14px}
+.kw span{font-size:.85rem;padding:2px 10px;border-radius:999px;border:1px solid var(--good);color:var(--good);background:#E7F5EE}
+.kw span.miss{border-color:#B9C2DA;color:var(--muted);background:transparent;border-style:dashed}
+.legend{font-size:.86rem;color:var(--muted);margin:0 0 10px}
+.legend mark{background:var(--mark);padding:0 4px}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:4px;padding:24px 22px;box-shadow:0 12px 30px -18px rgba(23,32,55,.35)}
+.ln{font-size:.95rem;overflow-wrap:anywhere;padding:1px 0}
+.ln.head{font:700 1rem var(--display);margin-top:16px;border-bottom:1px solid var(--line)}
+.txt.hl{background:linear-gradient(transparent 8%,var(--mark) 8%,var(--mark) 92%,transparent 92%)}
+.txt.ok{border-bottom:2px solid #7FCBA8}
+.cm{margin:4px 0 8px 18px;padding:6px 10px;font-size:.86rem;border-left:3px solid;background:#F5F7FC;border-radius:0 4px 4px 0}
+.cm.bad{border-color:var(--bad)} .cm.warn{border-color:var(--warn)} .cm.good{border-color:var(--good)}
+.ai-out{margin:22px 0}
+.ai-text{background:#EEF1FA;border-radius:6px;padding:12px 14px;font-size:.95rem}
+.cta{margin-top:26px}
+.iv-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.iv-head p{margin:0;color:var(--muted)}
+.prog{min-width:200px}
+.prog span{font-size:.86rem;font-weight:600}
+.chat{display:flex;flex-direction:column;gap:12px;max-height:54vh;overflow-y:auto;padding:16px;background:var(--sheet);border:1px solid var(--line);border-radius:8px}
+.msg{max-width:86%;padding:10px 14px;border-radius:12px;overflow-wrap:anywhere}
+.msg.bot{background:#EEF1FA;align-self:flex-start;border-top-left-radius:2px}
+.msg.me{background:var(--cobalt);color:#fff;align-self:flex-end;border-top-right-radius:2px;white-space:pre-wrap}
+.tag{display:block;font-size:.78rem;font-weight:600;color:var(--cobalt);margin-bottom:2px}
+.fb{align-self:stretch;border:1px solid var(--line);border-left:4px solid var(--cobalt);padding:12px 14px;background:#FBFCFF;border-radius:4px;font-size:.92rem}
+.fb ul{margin:8px 0 0;padding-left:18px}
+.fb li{margin-bottom:4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;gap:6px;align-items:baseline;padding:3px 10px;border-radius:999px;font-size:.85rem;border:1px solid}
+.chip.g{color:var(--good);border-color:var(--good);background:#E7F5EE}
+.chip.w{color:var(--warn);border-color:var(--warn);background:#FFF3DC}
+.chip.b{color:var(--bad);border-color:var(--bad);background:#FCEBE9}
+.ai-note{margin-top:8px;font-size:.88rem;color:var(--muted)}
+.composer{margin-top:14px}
+.composer[hidden]{display:none}
+.interim{flex:1;color:var(--muted);font-size:.86rem;min-width:120px}
+.report-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:20px}
+@media(max-width:900px){.report-grid{grid-template-columns:1fr;gap:12px}}
+.res li{margin-bottom:8px}
+.res a{color:var(--cobalt);font-weight:600}
+.learn-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+.learn-list{display:grid;gap:14px;margin-top:18px}
+.learn-card{background:var(--sheet);border:1px solid var(--line);border-radius:8px;padding:16px 18px}
+.lc-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.lc-head h3{margin:0}
+.badge{font-size:.78rem;font-weight:600;padding:3px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.badge.verified{color:var(--good);border-color:var(--good);background:#E7F5EE}
+.badge.studying{color:var(--warn);border-color:var(--warn);background:#FFF3DC}
+.lc-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.quiz-area{margin-top:12px;border-top:1px dashed var(--line);padding-top:12px}
+.quiz-area[hidden]{display:none}
+.quiz-q{margin-bottom:12px}
+.quiz-q p{font-weight:600;margin:0 0 6px}
+.quiz-q label{display:block;font-weight:400;margin:4px 0;cursor:pointer}
+.quiz-result{font-size:.9rem;margin-top:6px}
+.quiz-result.ok{color:var(--good)} .quiz-result.no{color:var(--bad)}
+.learn-progress{margin:14px 0 4px}
+details.q{border-top:1px solid var(--line);padding:10px 0}
+details.q summary{cursor:pointer;font-weight:600}
+.you{background:#F5F7FC;border-radius:6px;padding:8px 12px;font-size:.9rem;margin:8px 0}
+table{border-collapse:collapse;font-size:.9rem;width:100%}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{.top,.steps,.btn,.side,.cta{display:none}.view{padding:0}}
+
+:root{--paper:#FBF6FF;--ink:#2A1740;--muted:#6F5C86;--line:#EADCF8;--cobalt:#7C3AED;--mark:#F9C6E4;--pink:#EC4899;--good:#15803D}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#160D24;--sheet:#22143A;--ink:#F5ECFF;--muted:#B9A5D3;--line:#3D2761;--cobalt:#A78BFA;--mark:#831843}}
+body{background:radial-gradient(circle at 12% -10%,#f5d0fe66,transparent 45%),var(--paper)}
+.g{background:linear-gradient(135deg,#7c3aed,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand{display:flex;align-items:center;gap:10px}.brand span{background:linear-gradient(135deg,#7c3aed,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent;padding:0}
+.logo,.logo-lg{display:inline-block;line-height:0}.logo svg{width:36px;height:36px}.logo-lg svg{width:64px;height:64px}
+.top{position:sticky;top:0;z-index:5;backdrop-filter:blur(10px)}.userbox{display:flex;gap:8px;align-items:center;font-size:.9rem}
+.btn{border-radius:12px;transition:transform .2s,box-shadow .2s}.btn:hover:not(:disabled){transform:translateY(-1px)}
+.btn.primary{background:linear-gradient(135deg,#7c3aed,#ec4899);border:0;color:#fff}.btn.primary:hover:not(:disabled){box-shadow:0 6px 16px #7c3aed55}.btn.ghost{border-color:var(--line)}
+.learn-card,.meter,details.q,.ai-box,.tile,.dcard,.sq,.opt-card{border-radius:16px}.learn-card,.dcard,.sq{box-shadow:0 4px 18px #7c3aed14}
+.track i{background:linear-gradient(90deg,#7c3aed,#ec4899)}
+#auth{position:fixed;inset:0;z-index:50;overflow:auto;display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:center;padding:32px clamp(16px,5vw,64px);background:linear-gradient(135deg,#f5eaff,#fde7f3 60%,#fff)}
+#auth[hidden]{display:none}#auth h1{font:700 3rem var(--display);margin:8px 0}.au-tag{font:600 1.15rem var(--display);color:#4c1d95}#auth li{margin:6px 0;color:#2a1740}#auth .au-hero p{color:#4b3a63}
+.au-card{background:#fff;color:#2a1740;border:1px solid #eadcf8;border-radius:22px;padding:26px;box-shadow:0 18px 50px #7c3aed26;max-width:440px;width:100%;justify-self:center}.au-card .note{color:#6f5c86}
+.au-tabs{display:flex;gap:6px;background:#f5eaff;border-radius:12px;padding:4px;margin-bottom:8px}.au-tabs button{flex:1;border:0;background:none;padding:9px;border-radius:9px;font:600 .95rem var(--body);cursor:pointer;color:#6f5c86}.au-tabs .on{background:#fff;color:#7c3aed;box-shadow:0 2px 8px #7c3aed22}
+.au-card input{width:100%;padding:11px 12px;border:1px solid #eadcf8;border-radius:10px;margin:4px 0 12px;font:inherit;background:#fff;color:#2a1740}.au-card label{color:#6f5c86;font-weight:600;font-size:.85rem}
+@media(max-width:820px){#auth{grid-template-columns:1fr}#auth h1{font-size:2.2rem}}
+.dgrid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin:16px 0}.dcard{background:var(--sheet);border:1px solid var(--line);padding:18px}.dcard b.big{font:700 2rem var(--display);display:block}
+.next{background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff;border-radius:18px;padding:20px;margin:14px 0}.next .btn{background:#fff;color:#7c3aed;border:0;margin-top:8px}
+.stage{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}.tile{background:linear-gradient(160deg,#2a1152,#5b1c6b);border-radius:18px;padding:14px;color:#fff;position:relative;min-height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.avatar svg{width:150px;height:150px}.nm{position:absolute;left:12px;bottom:8px;font-size:.8rem;background:#0006;padding:2px 10px;border-radius:12px}
+.cap{margin:6px 0 24px;text-align:center;font-size:.95rem;max-width:36ch;min-height:2.8em}.cam video{width:100%;height:100%;object-fit:cover;border-radius:12px;transform:scaleX(-1);position:absolute;inset:0}.camoff{position:relative;text-align:center;padding:10px;font-size:.9rem;color:#e9d5ff}
+.mouth,.eye{transform-box:fill-box;transform-origin:center}.avatar.speaking .mouth{animation:talk .26s infinite alternate}.avatar.speaking svg{animation:bob 1.2s infinite}.eye{animation:blink 4.5s infinite}
+@keyframes talk{to{transform:scaleY(3.2)}}@keyframes bob{50%{transform:translateY(-2px)}}@keyframes blink{0%,96%,100%{transform:scaleY(1)}98%{transform:scaleY(.1)}}
+.ctrl{margin:10px 0}#view-interview.setup>*:not(#iv-setup){display:none}
+.opt-card{display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);padding:12px 14px;margin:8px 0;cursor:pointer;background:var(--sheet)}.opt-card:has(input:checked){border-color:#7c3aed;background:#f5eaff;color:#2a1740}
+.sq{background:var(--sheet);border:1px solid var(--line);padding:16px;margin-top:12px}.sq-h{display:flex;justify-content:space-between;margin-bottom:6px}.sq-q{font-weight:600;margin:12px 0}.sq-o{display:block;width:100%;text-align:left;margin:6px 0}
+.sq-o.ok{background:#dcfce7;border-color:#15803d;color:#14532d}.sq-o.no{background:#fee2e2;border-color:#b91c1c;color:#7f1d1d}
+.lvl{font-size:.75rem;font-weight:700;padding:2px 10px;border-radius:99px;background:#f5eaff;color:#7c3aed}.lvl.l1{background:#fef3c7;color:#92400e}.lvl.l2{background:#fce7f3;color:#9d174d}
+.addcard{border:2px dashed #c4b5fd;border-radius:16px;padding:16px;margin:18px 0;background:var(--sheet)}.addcard textarea{width:100%;font:.85rem/1.5 ui-monospace,monospace;border-radius:10px;border:1px solid var(--line);padding:10px;background:var(--paper);color:var(--ink)}
+@media(max-width:700px){.stage{grid-template-columns:1fr}.tile{min-height:190px}.avatar svg{width:110px;height:110px}.userbox span{display:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="top-in wrap">
+    <div class="brand"><i class="logo"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lgx" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#lgx)"/><path d="M12 9h11l5 5v17H12z" fill="#fff" opacity=".95"/><path d="M15 26l4-4 3 3 5-6" stroke="#7c3aed" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16" cy="16" r="2" fill="#ec4899"/><path d="M19 16h5M19 19h3" stroke="#c4b5fd" stroke-width="1.6" stroke-linecap="round"/></svg></i><span>Nex_Tech</span></div>
+    <p class="privacy">Browser MVP: your resume, account and progress are stored locally in this browser. No server account is used in this standalone version.</p><div id="userbox" class="userbox"></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="steps" aria-label="Steps">
+    <button id="tab-dash" class="tab" aria-current="step"><span class="n">&#9679;</span>Dashboard</button>
+    <button id="tab-resume" class="tab"><span class="n">1</span>Resume review</button>
+    <button id="tab-learn" class="tab" disabled><span class="n">2</span>Learn what's missing</button>
+    <button id="tab-interview" class="tab" disabled><span class="n">3</span>Mock interview</button>
+    <button id="tab-report" class="tab" disabled><span class="n">4</span>Your report</button>
+  </nav>
+
+  <main id="main">
+    <!-- STEP 1 -->
+    <section id="view-dash" class="view"></section>
+    <section id="view-resume" class="view grid" hidden>
+      <div class="side">
+        <h1>Get your resume reviewed like a pull request</h1>
+        <p class="lede">Upload a PDF or paste the text. You get a score, line-by-line comments, a list of what to learn next, and a mock interview built from your own projects.</p>
+
+        <label for="role">Target role</label>
+        <select id="role"></select>
+
+        <label class="drop" for="file"><strong>Upload PDF</strong><span>or paste your resume text below — or create one with Resume Builder</span></label>
+        <input id="file" class="sr" type="file" accept="application/pdf">
+
+        <label for="text">Resume text</label>
+        <textarea id="text" rows="12" placeholder="Paste your resume here"></textarea>
+        <div class="row">
+          <button id="sample" class="btn ghost">Try a sample resume</button>
+          <button id="analyze" class="btn primary">Review my resume</button>
+        </div>
+        <p id="msg" class="note" role="status"></p>
+
+        <details class="ai-box">
+          <summary>On-device AI (optional)</summary>
+          <p class="note">Runs a small language model inside your browser using WebGPU, so nothing is sent to a server. The first load downloads roughly 1 GB. Works best in recent Chrome or Edge on a laptop.</p>
+          <div class="row"><button id="ai-load" class="btn ghost">Load on-device AI</button></div>
+          <div class="track" style="margin-top:10px"><i id="ai-bar" style="width:0"></i></div>
+          <p id="ai-status" class="note" role="status"></p>
+        </details>
+      </div>
+
+      <div id="results">
+        <div class="empty">
+          <h2>Your review appears here</h2>
+          <p>Add your resume, then choose Review my resume. You will see your score, what works, what to fix, and comments on individual lines.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section id="view-learn" class="view" hidden></section>
+
+    <!-- STEP 3 -->
+    <section id="view-interview" class="view" hidden>
+      <div class="iv-head">
+        <div><h2>Mock interview</h2><p id="iv-sub"></p></div>
+        <div class="prog"><span id="iv-count"></span><div class="track"><i id="iv-bar" style="width:0"></i></div></div>
+      </div>
+      <div id="iv-stage" class="stage">
+        <div class="tile"><div id="avatar" class="avatar"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><linearGradient id="ag" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs><circle cx="60" cy="60" r="58" fill="url(#ag)"/><path d="M22 120c2-26 20-34 38-34s36 8 38 34z" fill="#4c1d95"/><ellipse cx="60" cy="58" rx="28" ry="32" fill="#FFE1D0"/><path d="M30 56c-2-28 18-40 34-36 16 2 28 14 26 36-6-14-16-20-30-20s-24 6-30 20z" fill="#2a1740"/><path d="M28 62a32 34 0 0 1 64 0" fill="none" stroke="#f9a8d4" stroke-width="4"/><circle cx="29" cy="64" r="5" fill="#f9a8d4"/><g class="eyes"><ellipse class="eye" cx="48" cy="58" rx="3.4" ry="4" fill="#2a1740"/><ellipse class="eye" cx="72" cy="58" rx="3.4" ry="4" fill="#2a1740"/></g><path d="M44 49q4-3 8 0M68 49q4-3 8 0" stroke="#2a1740" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse class="mouth" cx="60" cy="76" rx="8" ry="2.2" fill="#b4234f"/></svg></div><div class="nm">Nex, your AI interviewer</div><p id="iv-cap" class="cap" aria-live="polite"></p></div>
+        <div class="tile cam"><video id="cam" autoplay muted playsinline></video><div id="cam-off" class="camoff">Camera off</div><div class="nm">You <span id="iv-time"></span></div></div>
+      </div>
+      <div class="row ctrl"><button id="c-mute" class="btn ghost">Voice on</button><button id="c-cam" class="btn ghost">Camera</button><button id="c-rep" class="btn ghost">Replay question</button><button id="c-end" class="btn ghost">End interview</button></div>
+      <div id="chat" class="chat" aria-live="polite"></div>
+      <div id="composer" class="composer">
+        <label for="answer" class="sr">Your answer</label>
+        <textarea id="answer" rows="4" placeholder="Type your answer, or press Speak"></textarea>
+        <div class="row">
+          <button id="mic" class="btn ghost">Speak</button>
+          <span id="interim" class="interim"></span>
+          <button id="skip" class="btn ghost">Skip question</button>
+          <button id="send" class="btn primary">Send answer</button>
+        </div>
+        <p id="mic-note" class="note">Voice uses your browser's speech service, which may send audio online. Typing keeps everything on your device.</p>
+      </div>
+      <div id="nextbar" class="composer" hidden><button id="next" class="btn primary">Next question</button></div>
+    </section>
+
+    <!-- STEP 4 -->
+    <section id="view-report" class="view" hidden></section>
+  </main>
+</div>
+
+<div id="auth"><div class="au-hero"><div class="logo-lg"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lgx" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#lgx)"/><path d="M12 9h11l5 5v17H12z" fill="#fff" opacity=".95"/><path d="M15 26l4-4 3 3 5-6" stroke="#7c3aed" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16" cy="16" r="2" fill="#ec4899"/><path d="M19 16h5M19 19h3" stroke="#c4b5fd" stroke-width="1.6" stroke-linecap="round"/></svg></div><h1 class="g">Nex_Tech</h1><p class="au-tag">Build Your Resume. Practice Your Interview. Build Your Confidence.</p><p>Your AI-powered career coach for resumes, skills, interviews, and continuous improvement.</p><ul><li>ATS-friendly resume review</li><li>Free courses + adaptive 10-question skill checks</li><li>Video and audio mock interviews with an AI avatar</li><li>A report and action plan after every practice</li></ul></div>
+<form class="au-card" id="au-form" novalidate><div class="au-tabs" role="tablist"><button type="button" id="au-t-in" class="on">Log in</button><button type="button" id="au-t-up">Create account</button></div><h2 id="au-h">Welcome back</h2><label id="au-nl" for="au-name" hidden>Full name</label><input id="au-name" autocomplete="name" hidden><label for="au-email">Email</label><input id="au-email" type="email" autocomplete="email"><label for="au-pw">Password (min 6 characters)</label><input id="au-pw" type="password" autocomplete="current-password"><p id="au-err" class="note bad" role="alert"></p><button class="btn primary" style="width:100%" type="submit" id="au-go">Log in</button><p class="note">Demo sign-in: accounts are stored only in this browser, not on a server.</p></form></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+'use strict';
+/* ==================== helpers ==================== */
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const words = t => (String(t).trim().match(/\S+/g) || []).length;
+const clamp = (n, a = 0, b = 100) => Math.max(a, Math.min(b, n));
+const avg = a => a.length ? a.reduce((x, y) => x + y, 0) / a.length : 0;
+const cut = (s, n) => s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s;
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+// has(text, 'a|b|c'): true if any alternative appears. Short terms must match as whole words.
+function has(text, alts) {
+  const t = text.toLowerCase();
+  return alts.split('|').some(a => {
+    a = a.trim().toLowerCase();
+    if (a.length <= 4) {
+      const re = new RegExp('(^|[^a-z0-9])' + a.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '([^a-z0-9]|$)');
+      return re.test(t);
+    }
+    return t.includes(a);
+  });
+}
+
+/* ==================== data ==================== */
+const RES = {
+  neetcode:{n:'NeetCode roadmap',u:'https://neetcode.io/',w:'Practice arrays, hash maps, and other interview staples in order.'},
+  bigo:{n:'Big-O Cheat Sheet',u:'https://www.bigocheatsheet.com/',w:'Quick reference for time and space complexity.'},
+  mdn:{n:'MDN Learn web development',u:'https://developer.mozilla.org/en-US/docs/Learn',w:'Solid HTTP, HTML, CSS, and JavaScript fundamentals.'},
+  sqlbolt:{n:'SQLBolt',u:'https://sqlbolt.com/',w:'Short interactive SQL lessons, including joins.'},
+  cs50:{n:'Harvard CS50x',u:'https://cs50.harvard.edu/x/',w:'Free course covering core computer science ideas.'},
+  gitbranching:{n:'Learn Git Branching',u:'https://learngitbranching.js.org/',w:'Interactive practice with branches, merges, and conflicts.'},
+  motesting:{n:'Ministry of Testing',u:'https://www.ministryoftesting.com/',w:'Testing concepts, bug reports, and career advice.'},
+  selenium:{n:'Selenium documentation',u:'https://www.selenium.dev/documentation/',w:'Start browser automation with the official guide.'},
+  docker:{n:'Docker: Get started',u:'https://docs.docker.com/get-started/',w:'Containers and images explained by doing.'},
+  k8s:{n:'Kubernetes basics tutorial',u:'https://kubernetes.io/docs/tutorials/kubernetes-basics/',w:'Pods, deployments, and scaling in a hands-on tutorial.'},
+  linuxjourney:{n:'Linux Journey',u:'https://linuxjourney.com/',w:'Command line, processes, and troubleshooting basics.'},
+  kaggle:{n:'Kaggle Learn',u:'https://www.kaggle.com/learn',w:'Short hands-on lessons in Python, pandas, and machine learning.'},
+  owasp:{n:'OWASP Top 10',u:'https://owasp.org/www-project-top-ten/',w:'The web security risks interviewers ask about most.'},
+  tryhackme:{n:'TryHackMe',u:'https://tryhackme.com/',w:'Guided labs for security fundamentals.'},
+  messer:{n:'Professor Messer',u:'https://www.professormesser.com/',w:'Free video courses on networking and IT support.'},
+  freecodecamp:{n:'freeCodeCamp',u:'https://www.freecodecamp.org/',w:'Free projects to build a portfolio.'},
+  roadmap:{n:'roadmap.sh',u:'https://roadmap.sh/',w:'Step-by-step skill roadmaps for each IT role.'},
+  awscp:{n:'AWS Cloud Practitioner Essentials',u:'https://aws.amazon.com/training/digital/aws-cloud-practitioner-essentials/',w:'Free intro to core AWS services and cloud concepts.'},
+  terraform:{n:'Terraform: Get Started',u:'https://developer.hashicorp.com/terraform/tutorials/aws-get-started',w:'Hands-on tutorial for infrastructure as code.'},
+  exceljet:{n:'ExcelJet',u:'https://exceljet.net/',w:'Short, practical Excel formulas and shortcuts.'},
+  agilecoach:{n:'Atlassian Agile Coach',u:'https://www.atlassian.com/agile',w:'Plain-language guide to Agile and Scrum.'}
+};
+const TOPIC_RES = {
+  dsa:['neetcode','bigo'], api:['mdn'], db:['sqlbolt'], oop:['cs50'], git:['gitbranching'],
+  testing:['motesting','selenium'], devops:['docker','k8s'], linux:['linuxjourney'], ml:['kaggle'],
+  security:['owasp','tryhackme'], net:['messer'], support:['messer','linuxjourney']
+};
+/* ==================== "learn what's missing" data ==================== */
+// Buckets a missing role-keyword can fall into, matched against its detection pattern.
+const TOPIC_HINTS = [
+  [/java|python|javascript|typescript|c\+\+/, 'lang'],
+  [/html|css|react|angular|vue|node|express|spring|django|flask/, 'web'],
+  [/rest|api|postman|rest assured/, 'api'],
+  [/sql|mysql|postgres|sqlite|database/, 'db'],
+  [/git|github|gitlab/, 'git'],
+  [/data structures|algorithms|dsa/, 'dsa'],
+  [/oop|object-oriented|object oriented/, 'oop'],
+  [/testing|unit test|junit|jest|selenium|cypress|playwright|testng|pytest|manual|automation|regression|sdlc|stlc|bug|defect|jira/, 'testing'],
+  [/docker|container|kubernetes|k8s|ci\/cd|jenkins|terraform|ansible|cloudformation|yaml|monitoring|prometheus|grafana/, 'devops'],
+  [/aws|azure|gcp|google cloud/, 'cloud'],
+  [/linux|ubuntu|kali|bash|shell/, 'linux'],
+  [/pandas|numpy|scikit|sklearn|machine learning|statistics|probability|tensorflow|pytorch|deep learning|keras|nlp|matplotlib|seaborn|tableau|power bi|visualization|jupyter|colab|data cleaning|preprocessing|eda/, 'ml'],
+  [/excel/, 'excel'],
+  [/owasp|wireshark|nmap|penetration|pentest|ethical hacking|vulnerability|cve|siem|splunk|encryption|cryptography|firewall|incident response|burp/, 'security'],
+  [/networking|tcp|dns|dhcp|vpn|lan|wan/, 'net'],
+  [/windows|active directory|ticket|help desk|helpdesk|service desk|hardware|itil|office 365|microsoft 365|m365|customer service|documentation/, 'support'],
+  [/agile|scrum/, 'agile']
+];
+function guessTopic(alts) {
+  const low = alts.toLowerCase();
+  for (const [re, topic] of TOPIC_HINTS) if (re.test(low)) return topic;
+  return 'general';
+}
+const LEARN_RES = {
+  lang:['freecodecamp','cs50'], web:['mdn','freecodecamp'], api:['mdn'], db:['sqlbolt'], git:['gitbranching'],
+  dsa:['neetcode','bigo'], oop:['cs50'], testing:['motesting','selenium'], devops:['docker','k8s'],
+  cloud:['awscp','terraform'], linux:['linuxjourney'], ml:['kaggle'], excel:['exceljet'],
+  security:['owasp','tryhackme'], net:['messer'], support:['messer','linuxjourney'], agile:['agilecoach'],
+  general:['roadmap']
+};
+// 2 quick multiple-choice checks per topic. c = index of the correct option.
+const QUIZ = {
+  lang:[{q:'Which of these is NOT typically a data type in most languages you\u2019d list here?',o:['Integer','String','Spreadsheet'],c:2},{q:'What does a function let you do?',o:['Reuse a block of logic by name','Store a file on disk','Style a web page'],c:0}],
+  web:[{q:'What does CSS control on a web page?',o:['Data storage','Visual style and layout','Server logic'],c:1},{q:'In a component-based framework like React, what is a "component"?',o:['A reusable piece of UI','A database table','A network request'],c:0}],
+  api:[{q:'Which HTTP method usually creates a new resource?',o:['GET','POST','DELETE'],c:1},{q:'A 404 response code means:',o:['Server error','Success','Resource not found'],c:2}],
+  db:[{q:'A SQL JOIN is used to:',o:['Combine rows from two or more tables','Delete a table','Encrypt a column'],c:0},{q:'Which is a NoSQL database?',o:['MongoDB','MySQL','PostgreSQL'],c:0}],
+  git:[{q:'What does "git commit" do?',o:['Uploads code to a website','Saves a snapshot of staged changes','Deletes a branch'],c:1},{q:'A merge conflict happens when:',o:['Two branches change the same lines differently','You forget to commit','The repo is empty'],c:0}],
+  dsa:[{q:'What is the average lookup time for a hash map?',o:['O(1)','O(n)','O(n^2)'],c:0},{q:'Inserting at the head of a linked list is:',o:['O(1)','O(n)','O(log n)'],c:0}],
+  oop:[{q:'Which pillar lets a subclass override a parent method?',o:['Encapsulation','Polymorphism','Abstraction'],c:1},{q:'Encapsulation mainly means:',o:['Hiding internal details behind an interface','Running code faster','Deleting unused code'],c:0}],
+  testing:[{q:'Regression testing checks that:',o:['New code broke nothing that worked before','The app looks nice','The server is fast'],c:0},{q:'A test case usually includes:',o:['Only a bug ID','Steps and expected result','Only the developer\u2019s name'],c:1}],
+  devops:[{q:'CI/CD pipelines mainly help teams:',o:['Design logos','Automatically build, test and deploy code','Write resumes'],c:1},{q:'A container differs from a VM mainly by:',o:['Sharing the host OS kernel','Needing its own OS install','Being slower to start'],c:0}],
+  cloud:[{q:'"Elastic" in cloud computing usually refers to:',o:['Scaling resources up or down on demand','A type of database','A programming language'],c:0},{q:'Infrastructure as Code means:',o:['Defining infrastructure in version-controlled config files','Writing infrastructure only by hand in a console','Avoiding automation'],c:0}],
+  linux:[{q:'Which command lists running processes?',o:['ls','ps','cd'],c:1},{q:'chmod is used to:',o:['Change file permissions','Change directories','Compress files'],c:0}],
+  ml:[{q:'Overfitting means a model:',o:['Performs well on training data but poorly on new data','Trains too fast','Uses too little data'],c:0},{q:'Which library is commonly used for dataframes in Python?',o:['pandas','React','Docker'],c:0}],
+  excel:[{q:'VLOOKUP is used to:',o:['Look up a value in a table by a key','Sort a chart','Send an email'],c:0},{q:'A pivot table is best for:',o:['Summarizing and grouping data','Writing code','Compressing files'],c:0}],
+  security:[{q:'The "C" in the CIA triad stands for:',o:['Confidentiality','Compression','Cloud'],c:0},{q:'SQL injection is prevented mainly by:',o:['Parameterized queries','Bigger passwords','Faster servers'],c:0}],
+  net:[{q:'DNS is mainly responsible for:',o:['Translating domain names to IP addresses','Encrypting traffic','Assigning IP addresses automatically'],c:0},{q:'DHCP is mainly responsible for:',o:['Automatically assigning IP addresses','Resolving domain names','Routing email'],c:0}],
+  support:[{q:'When prioritising tickets, you should mainly weigh:',o:['Impact and urgency','Who submitted it first, always','Ticket length'],c:0},{q:'Good practice when explaining a fix to a non-technical user is to:',o:['Use plain language and avoid jargon','Use as much jargon as possible','Skip the explanation'],c:0}],
+  agile:[{q:'A sprint in Scrum is:',o:['A fixed short period to deliver a chunk of work','A one-time yearly plan','A type of test'],c:0},{q:'A daily stand-up is mainly for:',o:['Quick sync on progress and blockers','Performance reviews','Code deployment'],c:0}],
+  general:[{q:'A good first step when learning a new tool is to:',o:['Try a short hands-on tutorial','Memorize the whole manual','Avoid practicing'],c:0},{q:'The best way to remember a new concept for an interview is to:',o:['Explain it out loud in your own words','Only read about it silently','Skip it'],c:0}]
+};
+const Q = (topic, text, expect) => ({ type: 'tech', topic, text, expect });
+
+const ROLES = {
+  dev:{label:'Software developer', starter:['freecodecamp','roadmap'],
+    kw:[['Java','java'],['Python','python'],['JavaScript','javascript|typescript'],['SQL','sql|mysql|postgres|sqlite'],['Git','git|github|gitlab'],['HTML/CSS','html|css'],['React','react|angular|vue'],['Node.js','node.js|nodejs|express|spring|django|flask'],['REST APIs','rest|api'],['Data structures','data structures|algorithms|dsa'],['OOP','oop|object-oriented|object oriented'],['Testing','testing|unit test|junit|jest'],['Docker','docker'],['Agile','agile|scrum']],
+    tech:[
+      Q('dsa','What is the difference between an array and a linked list, and when would you choose each?',[['Memory layout','contiguous|memory|pointer|node'],['Indexing','index|random access'],['Insertion','insert'],['Deletion','delete|remove'],['Complexity','o(n)|o(1)|constant|linear']]),
+      Q('api','Explain how a REST API works and name the common HTTP methods.',[['GET','get'],['POST','post'],['PUT/PATCH','put|patch'],['DELETE','delete'],['Status codes','status code|200|404|500'],['Stateless/JSON','stateless|json']]),
+      Q('db','What is the difference between SQL and NoSQL databases?',[['Tables/relational','table|relational'],['Schema','schema'],['Joins','join'],['Scaling','scal'],['Document/key-value','document|key-value|mongodb'],['Transactions','acid|transaction']]),
+      Q('oop','Explain the four pillars of object-oriented programming.',[['Encapsulation','encapsulation'],['Inheritance','inheritance'],['Polymorphism','polymorphism'],['Abstraction','abstraction']]),
+      Q('git','What is Git, and how would you resolve a merge conflict?',[['Branch','branch'],['Commit','commit'],['Merge','merge'],['Conflict markers/editing','conflict'],['Push/PR','pull request|rebase|push']]),
+      Q('dsa','How would you find duplicates in an array, and what is the time complexity?',[['Hash set/map','hash|set|map'],['Linear time','o(n)|linear'],['Sorting option','sort'],['Space trade-off','space|memory'],['Loop/iterate','loop|iterate|traverse']])
+    ]},
+  qa:{label:'QA / test engineer', starter:['motesting','selenium'],
+    kw:[['Test cases','test case'],['Test plan','test plan|test strategy'],['Manual testing','manual'],['Automation','automation|automated'],['Selenium','selenium|cypress|playwright'],['API testing','postman|api testing|rest assured'],['Bug tracking','jira|bug|defect'],['Regression','regression'],['SDLC/STLC','sdlc|stlc'],['SQL','sql|mysql'],['Java/Python','java|python'],['Agile','agile|scrum'],['TestNG/JUnit','testng|junit|pytest'],['Git','git|github']],
+    tech:[
+      Q('testing','What is the difference between smoke, sanity, and regression testing?',[['Smoke','smoke'],['Sanity','sanity'],['Regression','regression'],['Build stability','build|stable'],['New change','new feature|change|fix'],['Core functions','critical|core|main']]),
+      Q('testing','Walk me through the bug life cycle.',[['New','new'],['Assigned','assigned'],['Open','open'],['Fixed','fixed'],['Retest','retest'],['Verified/closed','verified|closed'],['Reopen','reopen']]),
+      Q('testing','How do you write a good test case?',[['Preconditions','precondition'],['Steps','steps'],['Expected result','expected result|expected'],['Test data','test data'],['Priority','priority|severity'],['Edge cases','edge|boundary|negative']]),
+      Q('testing','When would you automate a test, and when would you keep it manual?',[['Repetitive/regression','repetitive|regression'],['Cost/time','roi|time|cost'],['Exploratory/usability','exploratory|usability'],['Tools','selenium|cypress|framework'],['Stable features','stable']]),
+      Q('testing','What is the difference between severity and priority?',[['Severity','severity'],['Priority','priority'],['Impact','impact'],['Business urgency','business|urgent|order']])
+    ]},
+  devops:{label:'DevOps / cloud engineer', starter:['linuxjourney','docker'],
+    kw:[['Linux','linux|ubuntu'],['Docker','docker|container'],['Kubernetes','kubernetes|k8s'],['CI/CD','ci/cd|jenkins|github actions|gitlab ci'],['Git','git|github|gitlab'],['AWS/Azure/GCP','aws|azure|gcp|google cloud'],['Terraform/Ansible','terraform|ansible|cloudformation'],['Bash/Shell','bash|shell'],['Python','python'],['Monitoring','prometheus|grafana|monitoring'],['Networking','networking|tcp|dns'],['YAML','yaml']],
+    tech:[
+      Q('devops','What is CI/CD and why does it matter?',[['Continuous integration','continuous integration'],['Delivery/deployment','continuous delivery|continuous deployment|deploy'],['Pipeline','pipeline'],['Automation','automat'],['Tests','test'],['Tools','jenkins|github actions|gitlab']]),
+      Q('devops','What is the difference between a container and a virtual machine?',[['Shared kernel','kernel|host os'],['Isolation','isolat'],['Lightweight','lightweight|fast|small'],['Image','image'],['Hypervisor','hypervisor'],['Docker','docker']]),
+      Q('devops','Explain what Kubernetes does.',[['Orchestration','orchestrat'],['Pods','pod'],['Scaling','scal'],['Deployments','deployment'],['Cluster/nodes','cluster|node'],['Self-healing','self-heal|restart|rollout']]),
+      Q('linux','How would you troubleshoot a Linux server that is running slowly?',[['CPU','top|htop|cpu'],['Memory','memory|ram|free'],['Disk','disk|df|iostat'],['Logs','log'],['Processes','process'],['Network','network']]),
+      Q('devops','What is Infrastructure as Code?',[['Tools','terraform|ansible|cloudformation'],['Version control','version control|git'],['Repeatable','repeatable|consistent|reproducible'],['Declarative/templates','declarative|template|yaml'],['Automation','automat']])
+    ]},
+  data:{label:'Data / AI engineer', starter:['kaggle','sqlbolt'],
+    kw:[['Python','python'],['SQL','sql|mysql|postgres'],['Pandas','pandas'],['NumPy','numpy'],['Machine learning','machine learning|scikit|sklearn'],['Statistics','statistics|probability'],['Deep learning','tensorflow|pytorch|deep learning|keras'],['Visualization','matplotlib|seaborn|power bi|tableau|visualization'],['Excel','excel'],['Jupyter','jupyter|colab'],['NLP','nlp|natural language'],['Data cleaning','data cleaning|preprocessing|eda']],
+    tech:[
+      Q('ml','What is the difference between supervised and unsupervised learning?',[['Labels','label'],['Supervised','supervised'],['Unsupervised','unsupervised'],['Classification/regression','classification|regression'],['Clustering','clustering'],['Examples','k-means|decision tree|example']]),
+      Q('ml','How do you handle missing values in a dataset?',[['Drop','drop|remove'],['Impute','mean|median|mode|impute'],['Pandas','pandas|fillna'],['Outliers/distribution','outlier|distribution'],['Context','domain|context|understand']]),
+      Q('ml','What is overfitting and how do you prevent it?',[['Training data','training'],['Unseen data','test|unseen|validation'],['Regularization','regularization'],['Cross-validation','cross-validation|cross validation'],['Other fixes','more data|simpler|dropout|early stopping']]),
+      Q('db','Explain the difference between INNER JOIN and LEFT JOIN.',[['Inner','inner'],['Left','left'],['Matching rows','match'],['NULLs','null'],['Tables','table'],['Both sides','both']]),
+      Q('ml','How would you explain a model’s accuracy to a non-technical manager?',[['Precision/recall','precision|recall|f1'],['Business impact','business|impact'],['Plain language','simple|plain|analogy'],['Baseline','baseline|compare'],['Limits','limit|error|risk']])
+    ]},
+  security:{label:'Cybersecurity analyst', starter:['owasp','tryhackme'],
+    kw:[['Networking','networking|tcp/ip|tcp|dns'],['Linux','linux|kali'],['OWASP','owasp'],['Wireshark','wireshark'],['Nmap','nmap'],['Pen testing','penetration testing|pentest|ethical hacking'],['Vulnerability','vulnerability|cve'],['SIEM','siem|splunk'],['Encryption','encryption|cryptography'],['Firewall','firewall'],['Incident response','incident response'],['Burp Suite','burp'],['Python','python']],
+    tech:[
+      Q('security','What is the CIA triad?',[['Confidentiality','confidentiality'],['Integrity','integrity'],['Availability','availability'],['Examples','encrypt|hash|backup|redundan']]),
+      Q('security','Explain SQL injection and how to prevent it.',[['User input','user input|input'],['Query','query'],['Parameterized queries','parameterized|prepared'],['Validation','sanitiz|validat|escape'],['Database','database'],['Least privilege','least privilege|orm']]),
+      Q('security','What is the difference between symmetric and asymmetric encryption?',[['Symmetric','symmetric'],['Asymmetric','asymmetric'],['Keys','key'],['Public','public'],['Private','private'],['Examples','aes|rsa'],['Speed','speed|faster|slower']]),
+      Q('net','What happens when you type a URL into a browser?',[['DNS','dns'],['TCP','tcp'],['HTTP','http'],['TLS/HTTPS','tls|https|ssl'],['Server','server'],['Response/render','response|render']]),
+      Q('security','What is XSS, and how is it different from CSRF?',[['Script injection','script'],['Browser','browser'],['Session/cookie','session|cookie|token'],['User','user'],['Escaping/CSP','sanitiz|escape|csp|content security'],['Forged request','forged|unwanted|authenticated']])
+    ]},
+  support:{label:'IT support / helpdesk', starter:['messer','linuxjourney'],
+    kw:[['Troubleshooting','troubleshoot'],['Windows','windows'],['Linux','linux'],['Networking','networking|tcp/ip|lan|wan'],['Active Directory','active directory'],['Ticketing','ticket|jira|servicenow|zendesk'],['Help desk','help desk|helpdesk|service desk'],['Hardware','hardware'],['DNS/DHCP','dns|dhcp'],['ITIL','itil'],['Office 365','office 365|microsoft 365|m365'],['VPN','vpn'],['Customer service','customer service|customer support'],['Documentation','documentation']],
+    tech:[
+      Q('net','A user says they cannot connect to the internet. How do you troubleshoot it?',[['Cable/Wi-Fi','cable|wifi|wi-fi'],['IP settings','ip|ipconfig'],['Ping','ping'],['DNS','dns'],['Router/gateway','router|gateway'],['Restart','restart|reboot'],['Escalate','escalat']]),
+      Q('net','What is the difference between DNS and DHCP?',[['DNS','dns'],['DHCP','dhcp'],['Names','domain|name'],['IP address','ip address'],['Automatic assignment','assign|automatic'],['Resolve/translate','resolve|translate']]),
+      Q('support','How do you prioritise several tickets at once?',[['Priority','priority|severity'],['Impact','impact'],['SLA','sla'],['Urgent/critical','urgent|critical'],['Communication','communicat|update'],['Escalate','escalat']]),
+      Q('support','What steps would you take to reset a user’s password in Active Directory?',[['Active Directory','active directory'],['Verify identity','verify|identity'],['Reset','reset'],['Unlock','unlock'],['Policy','policy|complexity'],['Log the ticket','document|ticket|log']]),
+      Q('support','How would you explain a technical problem to a non-technical user?',[['Plain language','simple|plain|analogy'],['Avoid jargon','jargon'],['Patience/listening','patient|listen'],['Step by step','step'],['Confirm fixed','confirm|check|verify'],['Follow up','follow up|follow-up']])
+    ]}
+};
+const STAR = [['Situation','when|during|project|team|semester|internship|situation'],['Task','goal|task|needed to|challenge|problem|responsib|deadline'],['Action','i built|i designed|i implemented|i created|i wrote|i led|i decided|i used|i developed|i fixed|i analy|i organi|i divided|i asked|i learned'],['Result','result|achiev|improved|reduced|increased|saved|won|outcome|delivered|success|completed|%']];
+const BEHAV = [
+  'Tell me about a challenging problem you solved. What was your role and what was the result?',
+  'Tell me about a time you worked in a team and disagreed with someone. What happened?',
+  'Describe a time you had to learn something new quickly. How did you do it?'
+];
+const INTRO = { type:'intro', topic:'comm', text:'Tell me about yourself.', expect:[['Education','student|degree|b.tech|btech|bachelor|college|university|graduat|diploma'],['Skills','skill|python|java|javascript|sql|c++|react|linux|network'],['Projects','project|intern|built|developed'],['Goal','looking|goal|interested|passion|role|opportunity|want to']] };
+
+/* ==================== resume analysis ==================== */
+const HEAD_RE = /^(summary|professional summary|objective|career objective|profile|about me|education|academic background|skills|technical skills|key skills|projects?|academic projects?|personal projects?|experience|work experience|professional experience|internships?|internship experience|certifications?|courses|achievements|awards|extracurricular activities|languages|interests|hobbies)$/i;
+const VERBS = 'built|developed|designed|implemented|created|led|managed|reduced|improved|increased|optimized|optimised|automated|deployed|launched|analyzed|analysed|integrated|migrated|wrote|tested|resolved|fixed|delivered|organized|organised|configured|engineered|conducted|trained|achieved|won|secured|refactored|debugged|maintained|collaborated|presented|mentored|monitored|streamlined|generated|processed|visualized|coordinated|prepared|supported|documented|installed|troubleshot|administered|cut|saved|shipped';
+const VERB_RE = new RegExp('^(?:' + VERBS + ')\\b', 'i');
+const WEAK_RE = /\b(responsible for|worked on|helped(?: in| with)?|involved in|assisted in|hard[- ]?working|team player|good communication skills|quick learner|detail[- ]oriented|passionate about|duties included|tasked with)\b/i;
+function secKey(h) {
+  h = h.toLowerCase();
+  if (/summary|objective|profile|about/.test(h)) return 'summary';
+  if (/educat|academic background/.test(h)) return 'education';
+  if (/skill/.test(h)) return 'skills';
+  if (/project/.test(h)) return 'projects';
+  if (/experience|intern/.test(h)) return 'experience';
+  if (/certif|course/.test(h)) return 'certs';
+  return 'other';
+}
+function parseResume(text) {
+  const lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+  const sections = {}; let cur = 'header'; const out = [];
+  for (const t of lines) {
+    const clean = t.replace(/[^A-Za-z ]/g, '').trim();
+    if (t.length <= 40 && HEAD_RE.test(clean)) { cur = secKey(clean); out.push({ t, sec: cur, head: true }); continue; }
+    (sections[cur] = sections[cur] || []).push(t);
+    const bulletChar = /^[-•*▪◦●–·]\s*/.test(t);
+    const body = t.replace(/^[-•*▪◦●–·]\s*/, '');
+    const wc = words(body);
+    const inWork = cur === 'projects' || cur === 'experience';
+    const bullet = inWork && (bulletChar || (wc >= 8 && !/\b(19|20)\d{2}\b/.test(body)));
+    out.push({ t, body, sec: cur, bullet, wc });
+  }
+  const projects = out.filter(l => l.sec === 'projects' && !l.head && !l.bullet && l.wc <= 9).map(l => l.t);
+  return { lines: out, sections, projects };
+}
+function analyze(text, roleKey) {
+  const role = ROLES[roleKey], p = parseResume(text), low = text.toLowerCase(), wc = words(text);
+  const email = /[\w.+-]+@[\w-]+\.[\w.-]+/.test(text);
+  const phone = (text.match(/\+?\d[\d\s().-]{8,}\d/g) || []).some(m => { const d = m.replace(/\D/g, '').length; return d >= 10 && d <= 13; });
+  const li = /linkedin\.com/i.test(text), gh = /github\.com/i.test(text);
+  const sec = k => !!(p.sections[k] && p.sections[k].length);
+  const kwFound = role.kw.filter(([, a]) => has(low, a)), kwMissing = role.kw.filter(([, a]) => !has(low, a));
+  const bullets = p.lines.filter(l => l.bullet);
+  const numFrac = bullets.length ? bullets.filter(l => /\d/.test(l.body)).length / bullets.length : 0;
+  const verbFrac = bullets.length ? bullets.filter(l => VERB_RE.test(l.body)).length / bullets.length : 0;
+  const weakCount = p.lines.filter(l => !l.head && WEAK_RE.test(l.t) && (l.bullet || l.sec === 'summary')).length;
+  const unq = bullets.filter(l => !/\d/.test(l.body)).length;
+
+  // line-by-line review
+  let goodShown = 0, good = 0;
+  const items = p.lines.map(l => {
+    if (l.head) return { t: l.t, head: true };
+    const c = []; const weak = WEAK_RE.exec(l.t);
+    if (l.bullet) {
+      if (weak) c.push({ k: 'bad', m: '“' + weak[0] + '” is vague. Say what you did with a verb (Built, Designed, Reduced) and what changed.' });
+      else if (!VERB_RE.test(l.body)) c.push({ k: 'warn', m: 'Start with an action verb, such as Built, Automated, or Reduced.' });
+      if (!/\d/.test(l.body)) c.push({ k: 'warn', m: 'No numbers. Add scale or impact: users, % faster, hours saved, tests written.' });
+      if (!c.length) { good++; if (goodShown < 3) { goodShown++; c.push({ k: 'good', m: 'Strong: starts with an action and shows a result.' }); } }
+    } else if (l.sec === 'summary' && weak) {
+      c.push({ k: 'bad', m: '“' + weak[0] + '” is a cliché. Replace it with a specific skill or result.' });
+    }
+    return { t: l.t, c };
+  });
+
+  const contact = (email ? 4 : 0) + (phone ? 3 : 0) + (li ? 1.5 : 0) + (gh ? 1.5 : 0);
+  const structure = (sec('education') ? 5 : 0) + (sec('skills') ? 5 : 0) + ((sec('projects') || sec('experience')) ? 6 : 0) + (sec('summary') ? 2 : 0) + (sec('certs') ? 2 : 0);
+  const keywords = Math.min(1, kwFound.length / 8) * 25;
+  const impact = bullets.length ? 16 * numFrac + 12 * verbFrac + 7 * (1 - Math.min(1, weakCount / 3)) : 0;
+  const length = (wc >= 250 && wc <= 700) ? 10 : ((wc >= 150 && wc < 250) || (wc > 700 && wc <= 900)) ? 6 : 2;
+  const cats = [
+    { name: 'Contact details', pts: contact, max: 10, note: [!email && 'email', !phone && 'phone', !li && 'LinkedIn', !gh && 'GitHub'].filter(Boolean).length ? 'Missing: ' + [!email && 'email', !phone && 'phone', !li && 'LinkedIn', !gh && 'GitHub'].filter(Boolean).join(', ') : '' },
+    { name: 'Structure', pts: structure, max: 20, note: '' },
+    { name: 'Role keywords', pts: keywords, max: 25, note: kwFound.length + ' of ' + role.kw.length + ' found' },
+    { name: 'Impact of bullets', pts: impact, max: 35, note: bullets.length ? Math.round(numFrac * 100) + '% of bullets have numbers' : 'No bullet points found' },
+    { name: 'Length', pts: length, max: 10, note: wc + ' words' }
+  ];
+  const score = Math.round(cats.reduce((s, c) => s + c.pts, 0));
+
+  const strengths = [], weaknesses = [], opps = [];
+  if (contact >= 8.5) strengths.push('Contact details are complete.');
+  const present = [['Education', 'education'], ['Skills', 'skills'], ['Projects', 'projects'], ['Experience', 'experience'], ['Certifications', 'certs']].filter(([, k]) => sec(k)).map(([n]) => n);
+  if (present.length >= 3) strengths.push('Clear sections: ' + present.join(', ') + '.');
+  if (kwFound.length >= 5) strengths.push(kwFound.length + ' role keywords found, including ' + kwFound.slice(0, 4).map(k => k[0]).join(', ') + '.');
+  if (bullets.length && numFrac >= 0.5) strengths.push('Most bullets include numbers.');
+  if (good) strengths.push(good + ' bullet' + (good > 1 ? 's' : '') + ' pair an action with a result.');
+  if (!strengths.length) strengths.push('You have a starting point to build on.');
+  const missingContact = [!email && 'email', !phone && 'phone number'].filter(Boolean);
+  if (missingContact.length) weaknesses.push('No ' + missingContact.join(' or ') + ' found. Recruiters and ATS need it.');
+  const missingSec = [['Education', 'education'], ['Skills', 'skills']].filter(([, k]) => !sec(k)).map(([n]) => n);
+  if (!sec('projects') && !sec('experience')) missingSec.push('Projects or Experience');
+  if (missingSec.length) weaknesses.push('Missing sections: ' + missingSec.join(', ') + '. Use standard headings.');
+  if (!bullets.length) weaknesses.push('No bullet points found under Projects or Experience. Describe each project in 2 to 3 bullets.');
+  if (weakCount) weaknesses.push(weakCount + ' vague phrase' + (weakCount > 1 ? 's' : '') + ' (like “worked on” or “responsible for”).');
+  if (unq) weaknesses.push(unq + ' of ' + bullets.length + ' bullets have no numbers.');
+  if (wc < 150) weaknesses.push('Resume looks short (' + wc + ' words). Add project details.');
+  if (wc > 900) weaknesses.push('Resume is long (' + wc + ' words). Aim for one page if you are a fresher.');
+  if (!weaknesses.length) weaknesses.push('No major problems found. Read each line once more for typos.');
+  if (kwMissing.length) opps.push('Add these only if you have really used them: ' + kwMissing.slice(0, 6).map(k => k[0]).join(', ') + '.');
+  if (!gh) opps.push('Add a GitHub or portfolio link so reviewers can see your work.');
+  opps.push('Use one column, standard headings, and export as PDF. ATS software often misreads tables and icons.');
+  opps.push('Tailor the summary to the ' + role.label + ' role in one or two lines.');
+  return { score, cats, strengths, weaknesses, opps, kwFound, kwMissing, items, projects: p.projects, wc };
+}
+
+/* ==================== interview logic ==================== */
+function buildQuestions(a, roleKey) {
+  const role = ROLES[roleKey], qs = [INTRO];
+  if (a.projects[0]) {
+    qs.push({ type:'resume', topic:'starter', text:'Walk me through your project “' + cut(a.projects[0], 60) + '”. What problem did it solve, and what exactly was your part?',
+      expect:[['Problem','problem|goal|purpose|objective'],['Your role','my role|i built|i developed|i implemented|i designed|i created|i wrote'],['Tech used','tech|stack|used|using'],['Challenge','challenge|difficult|issue|bug'],['Result','result|outcome|improv|learn|deployed']] });
+  } else {
+    qs.push({ type:'resume', topic:'starter', text:'Tell me about the project you are most proud of. What problem did it solve, and what was your part?',
+      expect:[['Problem','problem|goal|purpose|objective'],['Your role','my role|i built|i developed|i implemented|i designed|i created|i wrote'],['Tech used','tech|stack|used|using'],['Challenge','challenge|difficult|issue|bug'],['Result','result|outcome|improv|learn|deployed']] });
+  }
+  const techs = shuffle(role.tech);
+  const skill = shuffle(a.kwFound)[0];
+  if (skill) {
+    qs.push({ type:'resume', topic:'starter', text:'Your resume lists ' + skill[0] + '. Describe where you used it and one thing that went wrong or surprised you.',
+      expect:[['Where you used it','used|built|project|implemented'],['What went wrong','problem|issue|bug|error|challenge|surprise|wrong'],['What you learned','learn|fix|solved|resolved|debug|improved']] });
+  } else qs.push(techs.pop());
+  qs.push(techs.pop(), techs.pop());
+  qs.push({ type:'behav', topic:'comm', text: BEHAV[Math.floor(Math.random() * BEHAV.length)], expect: STAR });
+  return qs;
+}
+const FILL_RE = /\b(?:um+|uh+|erm|you know|basically|literally|i mean|actually)\b/gi;
+const HEDGE_RE = /\b(?:maybe|i think|i guess|kind of|sort of|not sure|probably|i don't know|i dont know|might be|perhaps|somewhat)\b/gi;
+const OWN_RE = /\bI (?:built|designed|developed|created|led|implemented|fixed|wrote|managed|solved|used|decided|tested|deployed|analy[sz]ed|organi[sz]ed|worked|handled|configured)\b/gi;
+function evaluate(q, text, wpm) {
+  const wc = words(text);
+  const fillers = (text.match(FILL_RE) || []).length, hedges = (text.match(HEDGE_RE) || []).length, own = (text.match(OWN_RE) || []).length;
+  let comm = wc < 15 ? 30 : wc < 40 ? 55 : wc <= 170 ? 85 : 72;
+  comm -= Math.min(20, fillers * 4);
+  if (wpm && (wpm < 100 || wpm > 180)) comm -= 8;
+  let conf = 78 - Math.min(35, hedges * 7) - Math.min(15, fillers * 3) + Math.min(15, own * 5);
+  if (wc < 15) conf -= 20;
+  if (wpm && wpm < 90) conf -= 8;
+  const hits = q.expect.map(([l, a]) => ({ l, ok: has(text, a) }));
+  const need = Math.max(3, Math.ceil(q.expect.length * 0.75));
+  const content = clamp(Math.round(100 * Math.min(1, hits.filter(h => h.ok).length / need)));
+  return { wc, fillers, hedges, own, wpm, comm: clamp(comm), conf: clamp(conf), content, hits };
+}
+/* ==== UI ==== */
+/* ==================== on-device AI (optional, WebLLM) ==================== */
+const AI = {
+  engine: null, ready: false,
+  async load(onProgress) {
+    if (!('gpu' in navigator)) throw new Error('This browser has no WebGPU. Try recent Chrome or Edge on a laptop.');
+    const webllm = await import('https://esm.run/@mlc-ai/web-llm');
+    this.engine = await webllm.CreateMLCEngine('Llama-3.2-1B-Instruct-q4f16_1-MLC', { initProgressCallback: p => onProgress(p.text, p.progress) });
+    this.ready = true;
+  },
+  async ask(system, user) {
+    const r = await this.engine.chat.completions.create({ messages: [{ role: 'system', content: system }, { role: 'user', content: user }], temperature: 0.4, max_tokens: 280 });
+    return r.choices[0].message.content.trim();
+  }
+};
+
+/* ==================== UI ==================== */
+const SAMPLE = `Aarav Sharma
+aarav.sharma@email.com | +91 98765 43210 | linkedin.com/in/aaravsharma | github.com/aarav-dev
+
+SUMMARY
+Hard working final year B.Tech student looking for a software developer role.
+
+EDUCATION
+B.Tech in Computer Science, ABC Institute of Technology, 2022 - 2026, CGPA 8.1
+Coursework: Data Structures, DBMS, Operating Systems, Computer Networks
+
+SKILLS
+Languages: Java, Python, JavaScript, SQL
+Web: HTML, CSS, React, Node.js
+Tools: Git, GitHub, VS Code
+
+PROJECTS
+Student Attendance Portal
+- Responsible for building the backend using Node.js and MySQL
+- Worked on login and report pages
+- Built REST APIs used by 300+ students, reducing manual attendance work by 40%
+Expense Tracker App
+- Developed a React app to track expenses with charts
+- Helped in testing and fixing bugs
+
+INTERNSHIP
+Web Development Intern, XYZ Solutions (Jun 2025 - Aug 2025)
+- Involved in writing UI components for the client dashboard
+- Improved page load time by 25% by compressing images and lazy loading
+
+CERTIFICATIONS
+Python for Everybody - Coursera`;
+
+// History and "learn what's missing" progress are saved to localStorage so they survive a refresh.
+// (Voice input and resume text itself are never saved.)
+function loadJSON(key, fallback) { try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; } catch (_) { return fallback; } }
+function saveJSON(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch (_) {} }
+const state = { role: 'dev', text: '', analysis: null, iv: null, history: loadJSON('rehearse_history_v1', []), learn: loadJSON('rehearse_learn_v1', {}) };
+
+function show(view) {
+  ['resume', 'learn', 'interview', 'report'].forEach(v => {
+    $('#view-' + v).hidden = v !== view;
+    const t = $('#tab-' + v);
+    if (v === view) t.setAttribute('aria-current', 'step'); else t.removeAttribute('aria-current');
+  });
+  window.scrollTo({ top: 0 });
+}
+function say(m, bad) { const el = $('#msg'); el.textContent = m; el.className = 'note' + (bad ? ' bad' : ''); }
+const tone = n => n >= 70 ? 'g' : n >= 45 ? 'w' : 'b';
+
+// role select
+$('#role').innerHTML = Object.entries(ROLES).map(([k, r]) => '<option value="' + k + '">' + esc(r.label) + '</option>').join('');
+$('#role').addEventListener('change', e => { state.role = e.target.value; });
+
+// PDF upload
+async function readPdf(file) {
+  if (!window.pdfjsLib) throw new Error('The PDF reader did not load. Paste your resume text instead.');
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  const pdf = await pdfjsLib.getDocument({ data: await file.arrayBuffer() }).promise;
+  const pages = [];
+  for (let n = 1; n <= pdf.numPages; n++) {
+    const content = await (await pdf.getPage(n)).getTextContent();
+    const lines = []; let line = '', lastY = null;
+    for (const it of content.items) {
+      const y = Math.round(it.transform[5]);
+      if (lastY !== null && Math.abs(y - lastY) > 3) { lines.push(line.trim()); line = ''; }
+      line += it.str + (it.hasEOL ? '' : ' '); lastY = y;
+    }
+    if (line.trim()) lines.push(line.trim());
+    pages.push(lines.join('\n'));
+  }
+  return pages.join('\n');
+}
+$('#file').addEventListener('change', async e => {
+  const f = e.target.files[0]; if (!f) return;
+  say('Reading ' + f.name + '…');
+  try {
+    const t = await readPdf(f);
+    $('#text').value = t;
+    say(t.trim() ? 'PDF read. Check the text below, then choose Review my resume.' : 'No text found. This PDF may be a scan. Paste the text instead.', !t.trim());
+  } catch (err) { say((err && err.message) || 'Could not read that PDF. Paste the text instead.', true); }
+});
+$('#sample').addEventListener('click', () => { $('#text').value = SAMPLE; say('Sample loaded. Choose Review my resume.'); });
+
+// Resume review
+function meter(label, pts, max, note) {
+  const pct = Math.round(pts / max * 100);
+  return '<div class="meter"><div class="meter-top"><span>' + esc(label) + '</span><span>' + Math.round(pts) + '/' + max + '</span></div><div class="track"><i class="' + tone(pct) + '" style="width:' + pct + '%"></i></div>' + (note ? '<p class="hint">' + esc(note) + '</p>' : '') + '</div>';
+}
+function renderResults(a) {
+  const verdict = a.score >= 80 ? 'Strong. Polish the last few lines and start applying.' : a.score >= 60 ? 'Solid base. The highlighted lines are the fastest way to improve.' : 'Needs work before you apply. Start with the highlighted lines.';
+  let shownComments = 0, hidden = 0;
+  const review = a.items.map(it => {
+    if (it.head) return '<div class="ln head">' + esc(it.t) + '</div>';
+    const c = it.c || [], cls = c.some(x => x.k !== 'good') ? 'hl' : c.length ? 'ok' : '';
+    let html = '<div class="ln"><span class="txt ' + cls + '">' + esc(it.t) + '</span></div>';
+    c.forEach(x => { if (shownComments < 14 || x.k === 'good') { shownComments++; html += '<div class="cm ' + x.k + '">' + esc(x.m) + '</div>'; } else hidden++; });
+    return html;
+  }).join('');
+  const list = (title, arr, color) => '<div class="col" style="--c:' + color + '"><h3>' + title + '</h3><ul>' + arr.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul></div>';
+  $('#results').innerHTML =
+    '<div class="scorehead"><div class="score"><span class="big">' + a.score + '</span><span class="of">out of 100</span></div><div><h2>Resume score</h2><p class="lede">' + verdict + '</p></div></div>' +
+    a.cats.map(c => meter(c.name, c.pts, c.max, c.note)).join('') +
+    '<div class="cols">' + list('What works', a.strengths, 'var(--good)') + list('What to fix', a.weaknesses, 'var(--bad)') + list('What to add', a.opps, 'var(--cobalt)') + '</div>' +
+    '<h3>Keywords for ' + esc(ROLES[state.role].label) + '</h3><div class="kw">' + a.kwFound.map(k => '<span>' + esc(k[0]) + '</span>').join('') + a.kwMissing.map(k => '<span class="miss">' + esc(k[0]) + '</span>').join('') + '</div>' +
+    '<p class="hint">Solid chips are found in your resume. Dashed chips are missing.</p>' +
+    '<div class="ai-out" id="ai-out">' + (AI.ready ? '' : '<p class="note">Want written feedback too? Load on-device AI in the left panel.</p>') + '</div>' +
+    '<h3>Line-by-line review</h3><p class="legend"><mark>Highlighted</mark> lines have a comment. Underlined green lines are already strong.</p>' +
+    '<div class="sheet">' + review + '</div>' + (hidden ? '<p class="hint">' + hidden + ' more comments hidden. Fix these first, then review again.</p>' : '') +
+    '<div class="row cta">' + (a.kwMissing.length ? '<button id="go-learn" class="btn ghost">Learn what\u2019s missing (' + a.kwMissing.length + ')</button>' : '') + '<button id="go-interview" class="btn primary">Start mock interview</button></div>';
+  $('#go-interview').addEventListener('click', startInterview);
+  if ($('#go-learn')) $('#go-learn').addEventListener('click', () => show('learn'));
+}
+async function aiResumeFeedback() {
+  const out = $('#ai-out'); if (!out) return;
+  out.innerHTML = '<p class="note">On-device AI is reading your resume…</p>';
+  try {
+    const t = await AI.ask('You are a concise resume coach for IT students applying for ' + ROLES[state.role].label + ' roles. Give exactly 3 specific, actionable improvements as a numbered list. Never invent experience the candidate does not have.', state.text.slice(0, 3500));
+    out.innerHTML = '<h3>On-device AI feedback</h3><div class="ai-text">' + esc(t).replace(/\n/g, '<br>') + '</div>';
+  } catch (e) { out.innerHTML = '<p class="note bad">AI feedback failed: ' + esc(e.message || e) + '</p>'; }
+}
+$('#analyze').addEventListener('click', () => {
+  const text = $('#text').value;
+  if (words(text) < 40) { say('Add more of your resume (at least a few lines) to get a useful review.', true); return; }
+  state.text = text; state.role = $('#role').value;
+  state.analysis = analyze(text, state.role);
+  state.iv = null;
+  renderResults(state.analysis);
+  renderLearn(state.analysis);
+  $('#tab-learn').disabled = false; $('#tab-interview').disabled = false; $('#tab-report').disabled = true;
+  say('Review ready.');
+  if (AI.ready) aiResumeFeedback();
+  if (window.innerWidth <= 900) $('#results').scrollIntoView({ behavior: 'smooth' });
+});
+
+/* ==================== Learn what's missing ==================== */
+function learnProgress(roleKey) { return (state.learn[roleKey] = state.learn[roleKey] || {}); }
+function skillState(roleKey, label) {
+  const p = learnProgress(roleKey);
+  return p[label] || (p[label] = { status: 'new', tries: 0 });
+}
+function setSkillStatus(roleKey, label, status) {
+  skillState(roleKey, label).status = status;
+  saveJSON('rehearse_learn_v1', state.learn);
+}
+function renderLearn(a) {
+  const roleKey = state.role, missing = a.kwMissing;
+  if (!missing.length) {
+    $('#view-learn').innerHTML = '<h2>Learn what\u2019s missing</h2><div class="empty"><h2>Nothing missing here</h2><p>Every ' + esc(ROLES[roleKey].label) + ' keyword we look for turned up in your resume. Head to the mock interview to prove you can talk about it.</p></div>';
+    return;
+  }
+  const verified = missing.filter(([label]) => skillState(roleKey, label).status === 'verified').length;
+  const cards = missing.map(([label, alts]) => {
+    const st = skillState(roleKey, label), topic = guessTopic(alts);
+    const ids = LEARN_RES[topic] || LEARN_RES.general;
+    const resHtml = '<p class="hint"><b>Free courses to learn this</b></p><ul class="res">' + ids.map(id => '<li><a href="' + RES[id].u + '" target="_blank" rel="noopener noreferrer">' + esc(RES[id].n) + '</a><br><span class="hint">' + esc(RES[id].w) + '</span></li>').join('') + '</ul>';
+    const badge = st.status === 'verified' ? '<span class="badge verified">Verified</span>' : st.status === 'studying' ? '<span class="badge studying">Studying</span>' : '<span class="badge">Not started</span>';
+    return '<div class="learn-card" data-skill="' + esc(label) + '" data-topic="' + topic + '"><div class="lc-head"><h3>' + esc(label) + '</h3>' + badge + '</div>' + resHtml +
+      '<div class="lc-actions">' + (st.status === 'verified' ? '<button class="btn ghost retake-btn">Retake check</button>' :
+      '<button class="btn ghost quiz-btn">Take the 10-question check</button><button class="btn ghost skip-btn">I already know this</button>') + '</div>' +
+      '<div class="quiz-area" hidden></div></div>';
+  }).join('');
+  $('#view-learn').innerHTML =
+    '<div class="learn-top"><div><h2>Learn what\u2019s missing</h2><p class="lede">These ' + esc(ROLES[roleKey].label) + ' skills didn\u2019t turn up in your resume. Study a resource, then take the quick check to mark it verified. Already strong? Skip ahead to the mock interview any time.</p></div></div>' +
+    '<div class="learn-progress">' + meter('Skills verified', verified, missing.length, verified === missing.length ? 'All caught up.' : '') + '</div>' +
+    '<div class="learn-list">' + cards + '</div>';
+}
+function renderQuiz(card, topic) {
+  const qs = QUIZ[topic] || QUIZ.general;
+  const area = card.querySelector('.quiz-area');
+  area.hidden = false;
+  area.innerHTML = qs.map((q, i) => '<div class="quiz-q" data-qi="' + i + '"><p>' + esc(q.q) + '</p>' +
+    q.o.map((opt, j) => '<label><input type="radio" name="quiz-' + i + '" value="' + j + '"> ' + esc(opt) + '</label>').join('') + '</div>').join('') +
+    '<div class="row"><button class="btn primary submit-quiz-btn">Check my answers</button></div><p class="quiz-result" role="status"></p>';
+}
+function updateCardUI(card, label, roleKey) {
+  const st = skillState(roleKey, label);
+  const badgeHtml = st.status === 'verified' ? '<span class="badge verified">Verified</span>' : st.status === 'studying' ? '<span class="badge studying">Studying</span>' : '<span class="badge">Not started</span>';
+  card.querySelector('.badge').outerHTML = badgeHtml;
+  card.querySelector('.lc-actions').innerHTML = st.status === 'verified' ?
+    '<button class="btn ghost retake-btn">Retake check</button>' :
+    '<button class="btn ghost quiz-btn">Take the 10-question check</button><button class="btn ghost skip-btn">I already know this</button>';
+}
+function updateLearnMeter() {
+  const holder = $('#view-learn .learn-progress'); if (!holder) return;
+  const roleKey = state.role, missing = state.analysis.kwMissing;
+  const verified = missing.filter(([label]) => skillState(roleKey, label).status === 'verified').length;
+  holder.innerHTML = meter('Skills verified', verified, missing.length, verified === missing.length ? 'All caught up.' : '');
+}
+$('#view-learn').addEventListener('click', e => {
+  const card = e.target.closest('.learn-card'); if (!card) return;
+  const label = card.dataset.skill, topic = card.dataset.topic, roleKey = state.role;
+  if (e.target.classList.contains('skip-btn')) {
+    setSkillStatus(roleKey, label, 'verified');
+    updateCardUI(card, label, roleKey); updateLearnMeter();
+  } else if (e.target.classList.contains('quiz-btn') || e.target.classList.contains('retake-btn')) {
+    renderQuiz(card, topic);
+  } else if (e.target.classList.contains('submit-quiz-btn')) {
+    const qs = QUIZ[topic] || QUIZ.general;
+    let correct = 0;
+    card.querySelectorAll('.quiz-q').forEach((qDiv, i) => {
+      const picked = qDiv.querySelector('input:checked');
+      if (picked && Number(picked.value) === qs[i].c) correct++;
+    });
+    const result = card.querySelector('.quiz-result');
+    const st = skillState(roleKey, label); st.tries++;
+    if (correct === qs.length) {
+      setSkillStatus(roleKey, label, 'verified');
+      result.textContent = 'Nice, ' + correct + '/' + qs.length + ' correct. Marked verified.';
+      result.className = 'quiz-result ok';
+    } else {
+      setSkillStatus(roleKey, label, 'studying');
+      result.textContent = correct + '/' + qs.length + ' correct so far. Review the resource above, then try again.';
+      result.className = 'quiz-result no';
+    }
+    updateCardUI(card, label, roleKey); updateLearnMeter();
+    saveJSON('rehearse_learn_v1', state.learn);
+  }
+});
+
+// AI loader
+$('#ai-load').addEventListener('click', async () => {
+  const b = $('#ai-load'), s = $('#ai-status'); b.disabled = true; s.textContent = 'Preparing…';
+  try {
+    await AI.load((txt, p) => { s.textContent = txt; $('#ai-bar').style.width = Math.round((p || 0) * 100) + '%'; });
+    s.textContent = 'On-device AI is ready. It runs in this browser.'; b.textContent = 'AI loaded';
+    if (state.analysis) aiResumeFeedback();
+  } catch (e) { s.textContent = 'Could not load on-device AI: ' + (e.message || e) + ' The rule-based review still works.'; b.disabled = false; }
+});
+
+// Interview
+const TYPE_LABEL = { intro: 'Introduction', resume: 'From your resume', tech: 'Technical', behav: 'Behavioral' };
+function addMsg(kind, html, tag) {
+  const d = document.createElement('div'); d.className = 'msg ' + kind;
+  d.innerHTML = (tag ? '<span class="tag">' + esc(tag) + '</span>' : '') + (kind === 'me' ? esc(html) : html);
+  $('#chat').appendChild(d); $('#chat').scrollTop = $('#chat').scrollHeight; return d;
+}
+function startInterview() {
+  state.iv = { qs: buildQuestions(state.analysis, state.role), i: 0, results: [], buf: '', followed: false, voiceSec: 0, voiceWords: 0, reported: false };
+  $('#chat').innerHTML = '';
+  $('#iv-sub').textContent = ROLES[state.role].label + ' interview, ' + state.iv.qs.length + ' questions';
+  addMsg('bot', 'Hi, I’m your interviewer for the ' + esc(ROLES[state.role].label) + ' role. I will ask questions based on your resume. Answer as you would in a real interview.');
+  $('#tab-interview').disabled = false; $('#tab-report').disabled = true;
+  show('interview'); askQuestion();
+}
+function askQuestion() {
+  const iv = state.iv, q = iv.qs[iv.i];
+  iv.buf = ''; iv.followed = false; iv.voiceSec = 0; iv.voiceWords = 0;
+  $('#iv-count').textContent = 'Question ' + (iv.i + 1) + ' of ' + iv.qs.length;
+  $('#iv-bar').style.width = (iv.i / iv.qs.length * 100) + '%';
+  addMsg('bot', esc(q.text), TYPE_LABEL[q.type]);
+  $('#composer').hidden = false; $('#nextbar').hidden = true; $('#answer').value = ''; $('#answer').focus();
+}
+function addFeedback(r) {
+  const q = r.q, tech = q.type === 'tech' || q.type === 'resume';
+  const got = r.hits.filter(h => h.ok).map(h => h.l), miss = r.hits.filter(h => !h.ok).map(h => h.l);
+  const chip = (l, n) => '<span class="chip ' + tone(n) + '"><b>' + n + '</b> ' + l + '</span>';
+  const tips = [];
+  if (got.length) tips.push('Covered: ' + got.join(', ') + '.');
+  if (miss.length) tips.push((tech ? 'Not mentioned: ' : 'Add: ') + miss.join(', ') + '.' + (q.type === 'behav' ? ' Use STAR: Situation, Task, Action, Result.' : ''));
+  if (r.fillers > 2) tips.push('You used ' + r.fillers + ' filler words. Pause silently instead.');
+  if (r.wc < 40) tips.push('Short answer. Aim for 40 to 150 words, about 30 to 60 seconds.');
+  if (r.wc > 170) tips.push('Long answer. Lead with the main point, then add one example.');
+  if (r.hedges > 1) tips.push('Phrases like “I think” and “maybe” make you sound unsure. State it directly.');
+  if (r.own === 0 && (q.type === 'behav' || q.type === 'resume')) tips.push('Say what you did: “I built…”, “I fixed…”. Interviewers hire individuals, not teams.');
+  if (r.wpm) tips.push('Speaking pace: about ' + r.wpm + ' words per minute. Aim for 120 to 160.');
+  const d = document.createElement('div'); d.className = 'fb';
+  d.innerHTML = '<div class="chips">' + chip('Communication', r.comm) + chip('Confidence', r.conf) + chip(tech ? 'Technical' : 'Structure', r.content) + '</div><ul>' + tips.map(t => '<li>' + esc(t) + '</li>').join('') + '</ul><div class="ai-note"></div>';
+  $('#chat').appendChild(d); $('#chat').scrollTop = $('#chat').scrollHeight;
+  return d.querySelector('.ai-note');
+}
+async function aiAnswerNote(r, node) {
+  node.textContent = 'AI coach is thinking…';
+  try {
+    const t = await AI.ask('You are a supportive interview coach for IT students. In 2 short sentences, say how to improve this answer. Do not invent facts.', 'Question: ' + r.q.text + '\nAnswer: ' + r.text.slice(0, 1200));
+    node.innerHTML = '<b>AI coach:</b> ' + esc(t);
+  } catch (e) { node.textContent = ''; }
+}
+function finishQuestion(skipped) {
+  const iv = state.iv, q = iv.qs[iv.i]; let res = null;
+  if (!skipped) {
+    const wpm = (iv.voiceSec >= 5 && iv.voiceWords >= 12) ? Math.round(iv.voiceWords / (iv.voiceSec / 60)) : null;
+    res = evaluate(q, iv.buf, wpm); res.q = q; res.text = iv.buf;
+    const node = addFeedback(res);
+    if (AI.ready) aiAnswerNote(res, node);
+  } else addMsg('bot', 'Skipped. In a real interview, say what you do know, then how you would find out the rest.');
+  iv.results.push(res);
+  $('#composer').hidden = true;
+  $('#next').textContent = iv.i === iv.qs.length - 1 ? 'See my report' : 'Next question';
+  $('#nextbar').hidden = false; $('#next').focus();
+  if (iv.results.some(Boolean)) $('#tab-report').disabled = false;
+}
+$('#send').addEventListener('click', () => {
+  const ta = $('#answer'), text = ta.value.trim();
+  if (!text) { $('#interim').textContent = 'Type or speak an answer first.'; return; }
+  stopMic();
+  const iv = state.iv; iv.buf = (iv.buf ? iv.buf + ' ' : '') + text;
+  addMsg('me', text); ta.value = '';
+  if (!iv.followed && words(iv.buf) < 25) {
+    iv.followed = true;
+    addMsg('bot', 'Can you add more detail or a specific example? One or two more sentences will do.');
+    ta.focus(); return;
+  }
+  finishQuestion(false);
+});
+$('#skip').addEventListener('click', () => { stopMic(); finishQuestion(true); });
+$('#next').addEventListener('click', () => {
+  const iv = state.iv;
+  if (iv.i === iv.qs.length - 1) { renderReport(); show('report'); }
+  else { iv.i++; askQuestion(); }
+});
+
+// Voice input (uses the browser's speech service)
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+let rec = null, listening = false, t0 = 0;
+function startMic() {
+  rec = new SR(); rec.continuous = true; rec.interimResults = true; rec.lang = navigator.language || 'en-US';
+  rec.onresult = e => {
+    let fin = '', inter = '';
+    for (let i = e.resultIndex; i < e.results.length; i++) { const r = e.results[i]; if (r.isFinal) fin += r[0].transcript + ' '; else inter += r[0].transcript; }
+    if (fin) { const ta = $('#answer'); ta.value = (ta.value + ' ' + fin).trim(); state.iv.voiceWords += words(fin); }
+    $('#interim').textContent = inter;
+  };
+  rec.onerror = e => { if (e.error === 'not-allowed' || e.error === 'service-not-allowed') { stopMic(); $('#interim').textContent = 'Microphone blocked. Allow it in your browser, or type your answer.'; } };
+  rec.onend = () => { if (listening) { try { rec.start(); } catch (_) {} } };
+  try { rec.start(); listening = true; t0 = Date.now(); $('#mic').textContent = 'Stop'; $('#mic').classList.add('live'); } catch (_) {}
+}
+function stopMic() {
+  if (!listening) return;
+  listening = false; state.iv.voiceSec += (Date.now() - t0) / 1000;
+  try { rec.stop(); } catch (_) {}
+  $('#mic').textContent = 'Speak'; $('#mic').classList.remove('live'); $('#interim').textContent = '';
+}
+if (!SR) { $('#mic').hidden = true; $('#mic-note').textContent = 'Voice input is not supported in this browser. Type your answer.'; }
+$('#mic').addEventListener('click', () => listening ? stopMic() : startMic());
+
+// Report
+const TIPS = {
+  comm: ['Aim for 40 to 150 words per answer, about 30 to 60 seconds.', 'Replace filler words with a short pause.', 'Answer first, then explain: lead with the main point.'],
+  conf: ['State answers directly: “I would use…” instead of “I think maybe…”.', 'Use “I” for what you did in projects and teams.', 'Practise out loud twice before each real interview.'],
+  tech: ['Revise the topics in the resources below, then re-answer the questions you missed.', 'For each concept, prepare a one-line definition, a use case, and a trade-off.'],
+  struct: ['Use STAR: Situation, Task, Action, Result. End with a number or a lesson.', 'Prepare a 45-second introduction: education, skills, best project, goal.'],
+  resume: ['Fix the highlighted lines in your resume review, especially vague phrases and missing numbers.', 'Add missing keywords only if you have really used them.']
+};
+const NAMES = { resume: 'Resume', comm: 'Communication', conf: 'Confidence', tech: 'Technical knowledge', struct: 'Answer structure' };
+function renderReport() {
+  const iv = state.iv, a = state.analysis, R = iv.results.filter(Boolean);
+  const techR = R.filter(r => r.q.type === 'tech' || r.q.type === 'resume'), strR = R.filter(r => r.q.type === 'intro' || r.q.type === 'behav');
+  const S = { resume: a.score, comm: avg(R.map(r => r.comm)), conf: avg(R.map(r => r.conf)), tech: techR.length ? avg(techR.map(r => r.content)) : null, struct: strR.length ? avg(strR.map(r => r.content)) : null };
+  Object.keys(S).forEach(k => { if (S[k] !== null) S[k] = Math.round(S[k]); });
+  if (!iv.reported && iv.results.length === iv.qs.length) { state.history.push(Object.assign({}, S)); iv.reported = true; saveJSON('rehearse_history_v1', state.history); }
+  const keys = Object.keys(S).filter(k => S[k] !== null);
+  const weakest = keys.reduce((m, k) => S[k] < S[m] ? k : m, keys[0]);
+  // resources
+  const ids = [];
+  techR.filter(r => r.content < 70).forEach(r => { (r.q.topic === 'starter' ? ROLES[state.role].starter : TOPIC_RES[r.q.topic] || []).forEach(i => { if (!ids.includes(i)) ids.push(i); }); });
+  if (a.cats[2].pts / a.cats[2].max < 0.7) ROLES[state.role].starter.forEach(i => { if (!ids.includes(i)) ids.push(i); });
+  const resHtml = ids.length ? '<ul class="res">' + ids.slice(0, 6).map(i => '<li><a href="' + RES[i].u + '" target="_blank" rel="noopener noreferrer">' + esc(RES[i].n) + '</a><br><span class="hint">' + esc(RES[i].w) + '</span></li>').join('') + '</ul>' : '<p>Your technical answers covered the key points. Keep practising with a new set of questions.</p>';
+  const recap = R.map(r => '<details class="q"><summary>' + esc(cut(r.q.text, 100)) + '</summary><p class="you">' + esc(r.text) + '</p><div class="chips">' +
+    '<span class="chip ' + tone(r.comm) + '"><b>' + r.comm + '</b> Communication</span><span class="chip ' + tone(r.conf) + '"><b>' + r.conf + '</b> Confidence</span><span class="chip ' + tone(r.content) + '"><b>' + r.content + '</b> ' + ((r.q.type === 'tech' || r.q.type === 'resume') ? 'Technical' : 'Structure') + '</span></div></details>').join('');
+  let hist = '';
+  if (state.history.length > 1) {
+    hist = '<h3 style="margin-top:24px">Your attempts</h3><table><tr><th>Attempt</th><th>Comm.</th><th>Conf.</th><th>Tech.</th><th>Struct.</th></tr>' +
+      state.history.map((h, i) => '<tr><td>' + (i + 1) + '</td><td>' + h.comm + '</td><td>' + h.conf + '</td><td>' + (h.tech === null ? '-' : h.tech) + '</td><td>' + (h.struct === null ? '-' : h.struct) + '</td></tr>').join('') + '</table>';
+  }
+  $('#view-report').innerHTML =
+    '<h2>Your report</h2><p class="lede">Your weakest area right now is <b>' + NAMES[weakest].toLowerCase() + '</b> (' + S[weakest] + '/100). Work on that first.</p>' +
+    '<div class="report-grid"><div>' + keys.map(k => meter(NAMES[k], S[k], 100, '')).join('') + hist + '</div>' +
+    '<div><h3>Work on this first</h3><ul>' + TIPS[weakest].map(t => '<li>' + esc(t) + '</li>').join('') + '</ul>' +
+    '<h3 style="margin-top:20px">Learning resources</h3>' + resHtml + '</div></div>' +
+    '<h3 style="margin-top:28px">Question by question</h3>' + recap +
+    '<div class="row cta"><button id="again" class="btn primary">Practise again</button><button id="newresume" class="btn ghost">Review a different resume</button><button id="print" class="btn ghost">Print report</button></div>';
+  $('#again').addEventListener('click', startInterview);
+  $('#newresume').addEventListener('click', () => show('resume'));
+  $('#print').addEventListener('click', () => window.print());
+}
+
+// Tabs
+$('#tab-resume').addEventListener('click', () => show('resume'));
+$('#tab-learn').addEventListener('click', () => { if (!state.analysis) return; show('learn'); });
+$('#tab-interview').addEventListener('click', () => { if (!state.analysis) return; if (!state.iv) startInterview(); else show('interview'); });
+$('#tab-report').addEventListener('click', () => { if (state.iv && state.iv.results.some(Boolean)) { renderReport(); show('report'); } });
+</script>
+<script>
+/* ===== Nex_Tech layer: sign-in, dashboard, adaptive skill quiz, avatar interview, resume skill add ===== */
+let CU = null;
+const lj = (k, f) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : f; } catch (_) { return f; } };
+const sj = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (_) {} };
+const _sj = saveJSON; saveJSON = (k, v) => _sj(CU ? k + '_' + CU.id : k, v);
+state.seen = {};
+/* ---------- auth (browser-only demo accounts) ---------- */
+async function hashPw(pw, salt) {
+  try { const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(salt + pw)); return Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2, '0')).join(''); }
+  catch (_) { let h = 5381; for (const c of salt + pw) h = (h * 33 ^ c.charCodeAt(0)) >>> 0; return String(h); }
+}
+let signup = false;
+function authMode(up) {
+  signup = up; $('#au-t-in').classList.toggle('on', !up); $('#au-t-up').classList.toggle('on', up);
+  $('#au-name').hidden = $('#au-nl').hidden = !up; $('#au-h').textContent = up ? 'Create your account' : 'Welcome back';
+  $('#au-go').textContent = up ? 'Create account' : 'Log in'; $('#au-err').textContent = '';
+}
+$('#au-t-in').onclick = () => authMode(false); $('#au-t-up').onclick = () => authMode(true);
+$('#au-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const email = $('#au-email').value.trim().toLowerCase(), pw = $('#au-pw').value, name = $('#au-name').value.trim(), err = $('#au-err'), users = lj('nex_users', {});
+  if (!/^\S+@\S+\.\S+$/.test(email)) { err.textContent = 'Please enter a valid email.'; return; }
+  if (pw.length < 6) { err.textContent = 'Password must be at least 6 characters.'; return; }
+  if (signup) {
+    if (!name) { err.textContent = 'Please enter your name.'; return; }
+    if (users[email]) { err.textContent = 'That email already has an account. Please log in.'; return; }
+    const salt = Math.random().toString(36).slice(2);
+    users[email] = { id: 'u' + Date.now().toString(36), name, email, salt, h: await hashPw(pw, salt) }; sj('nex_users', users);
+  } else {
+    const u = users[email];
+    if (!u || u.h !== await hashPw(pw, u.salt)) { err.textContent = 'Incorrect email or password.'; return; }
+  }
+  sj('nex_session', email); enter(users[email]);
+});
+function enter(u) {
+  CU = u; $('#auth').hidden = true;
+  state.history = lj('rehearse_history_v1_' + u.id, []); state.learn = lj('rehearse_learn_v1_' + u.id, {}); state.seen = lj('nex_seen_' + u.id, {});
+  $('#userbox').innerHTML = '<span>Hi, ' + esc(u.name.split(' ')[0]) + '</span><button class="btn ghost" id="logout">Log out</button>';
+  $('#logout').onclick = () => { localStorage.removeItem('nex_session'); location.reload(); };
+  show('dash');
+}
+/* ---------- navigation incl. dashboard ---------- */
+const VIEWS = ['dash', 'resume', 'learn', 'interview', 'report'];
+show = function (view) {
+  VIEWS.forEach(v => { $('#view-' + v).hidden = v !== view; const t = $('#tab-' + v); if (v === view) t.setAttribute('aria-current', 'step'); else t.removeAttribute('aria-current'); });
+  if (view !== 'interview') { camOff(); if (window.speechSynthesis) speechSynthesis.cancel(); avOn(0); }
+  if (view === 'dash') renderDash();
+  window.scrollTo({ top: 0 });
+};
+$('#tab-dash').addEventListener('click', () => show('dash'));
+function renderDash() {
+  const a = state.analysis, role = state.role, miss = a ? a.kwMissing : [], ver = miss.filter(([l]) => skillState(role, l).status === 'verified').length, H = state.history, last = H[H.length - 1];
+  let step = ['Review your resume', 'Upload or paste your resume to get your score and gaps.', 'resume'];
+  if (a && ver < miss.length) step = ['Learn what\u2019s missing', (miss.length - ver) + ' skill(s) left. Study a free course, then take the 10-question check.', 'learn'];
+  else if (a && !H.length) step = ['Start your first mock interview', 'Practise with the AI interviewer by audio, video or both.', 'interview'];
+  else if (a) step = ['Practise again', 'Repeat the interview and try to beat your last scores.', 'interview'];
+  const bars = last ? ['comm', 'conf', 'tech', 'struct'].filter(k => last[k] !== null).map(k => meter(NAMES[k], last[k], 100, '')).join('') : '<p class="hint">Finish a mock interview to see your scores here.</p>';
+  $('#view-dash').innerHTML = '<h2>Welcome back, ' + esc(CU.name.split(' ')[0]) + '</h2><p class="lede">Build Your Resume. Practice Your Interview. Build Your Confidence.</p>' +
+    '<div class="next"><b>Next step: ' + step[0] + '</b><p style="margin:4px 0">' + step[1] + '</p><button class="btn" id="d-go">Go</button></div>' +
+    '<div class="dgrid"><div class="dcard"><span class="hint">Resume score</span><b class="big g">' + (a ? a.score + '/100' : '\u2014') + '</b></div>' +
+    '<div class="dcard"><span class="hint">Skills verified</span><b class="big g">' + (a ? ver + '/' + miss.length : '\u2014') + '</b></div>' +
+    '<div class="dcard"><span class="hint">Mock interviews</span><b class="big g">' + H.length + '</b></div></div>' +
+    '<h3>Latest interview scores</h3>' + bars;
+  $('#d-go').onclick = () => { if (step[2] === 'interview') { state.iv ? show('interview') : startInterview(); } else if (a || step[2] === 'resume') show(step[2]); };
+}
+/* ---------- adaptive skill quiz: 10 Qs, easy -> hard, fresh each time and per user ---------- */
+const FB = {
+lang: 'Variable=a named place that stores a value;Function=a reusable block of code that can take inputs and return a value;Loop=repeats a block of code while a condition holds;Boolean=a value that is either true or false;List/array=an ordered collection of items accessed by index;String=a sequence of text characters;Scope=the region of code where a variable can be accessed;Exception handling=catching runtime errors so a program can recover instead of crashing;Recursion=a function that calls itself on a smaller version of the problem;Immutable value=one that cannot be changed after it is created;Time complexity=how running time grows as the input size grows;Pass by reference=passing the memory location so the callee can modify the original object',
+web: 'HTML=the markup language that structures page content;CSS=the language that controls visual style and layout;JavaScript=the language that makes web pages interactive in the browser;DOM=the browser tree representation of a page that scripts can change;Responsive design=layouts that adapt to different screen sizes;Flexbox=a CSS layout model for arranging items in one dimension;Semantic HTML=using elements like header and nav that describe meaning and help accessibility;State=data that changes over time and triggers a UI update when it does;React component=a reusable piece of UI that returns markup based on props and state;CORS=a browser rule controlling which other origins may request a server resources;Event delegation=attaching one listener to a parent to handle events from many children;Virtual DOM=an in-memory copy of the UI used to compute minimal real DOM updates',
+api: 'API=a defined way for programs to talk to each other;HTTP GET=the method used to read data without changing it;HTTP POST=the method typically used to create a new resource;JSON=a lightweight text format for exchanging structured data;Status 404=the requested resource was not found;Status 200=the request succeeded;REST=an API style that uses HTTP methods on resource URLs;Status 401=the caller is not authenticated;Idempotent request=one that has the same effect whether sent once or many times;Rate limiting=restricting how many requests a client may make in a time window;Pagination=returning large result sets in smaller pages;JWT=a signed token that carries claims used to authenticate API requests',
+db: 'Database=an organized store of data;Table=rows and columns holding records of one kind;Primary key=a column that uniquely identifies each row;SELECT=the SQL statement that reads data;JOIN=combines rows from two tables using a related column;Foreign key=a column that references the primary key of another table;GROUP BY=groups rows so aggregate functions like COUNT apply per group;NoSQL=databases that use non-tabular models such as documents or key-value pairs;Index=a structure that speeds up lookups at the cost of extra storage and slower writes;Normalization=organizing tables to reduce duplicated data;Transaction=a group of operations that succeed or fail together;ACID=atomicity, consistency, isolation and durability guarantees for transactions',
+git: 'Git=a distributed version control system;Repository=a project folder whose history is tracked;Commit=a saved snapshot of staged changes;Branch=an independent line of development;Clone=copying a remote repository to your machine;Pull request=a proposal to merge changes that teammates can review;Merge conflict=when two branches change the same lines differently;.gitignore=a file listing paths Git should not track;Rebase=reapplying commits on top of another base to keep history linear;git stash=temporarily shelves uncommitted changes;git revert=creates a new commit that undoes an earlier commit;Fast-forward merge=moves a branch pointer forward when there are no divergent commits',
+dsa: 'Array=contiguous items accessed by index in constant time;Stack=a last-in, first-out structure;Queue=a first-in, first-out structure;Linked list=nodes that each point to the next node;Hash map=stores key-value pairs with average O(1) lookup;Binary search=finds an item in a sorted list in O(log n) time;Big-O notation=describes how cost grows with input size;Tree=a hierarchy of nodes with parent-child links;BFS=explores a graph level by level using a queue;DFS=explores a graph as deep as possible first using a stack or recursion;Dynamic programming=solving overlapping subproblems once and reusing the results;Heap=a tree-based structure giving fast access to the minimum or maximum element',
+oop: 'Class=a blueprint for creating objects;Object=an instance of a class with its own data;Encapsulation=bundling data with methods and hiding internal details;Inheritance=a class reusing and extending another class;Polymorphism=the same call behaving differently depending on the object type;Abstraction=exposing what something does while hiding how;Constructor=a method that initializes a new object;Method overriding=a subclass providing its own version of a parent method;Interface=a contract listing methods a class must provide;Composition=building objects by combining other objects instead of inheriting;SOLID=five design principles for maintainable object-oriented code;Dependency injection=passing an object dependencies in instead of creating them inside',
+testing: 'Test case=steps plus an expected result used to check behavior;Bug=a defect where software behaves differently from expected;Unit test=tests one small piece of code in isolation;Manual testing=a person executes tests without automation;Regression testing=checks that new changes did not break existing features;Integration testing=checks that components work together;Smoke test=a quick check that the most critical functions work;Test automation=using scripts or tools to run tests repeatedly;Boundary value analysis=testing at the edges of allowed input ranges;Mocking=replacing a dependency with a fake to isolate what is tested;Test coverage=the share of code exercised by tests;Flaky test=one that sometimes passes and sometimes fails without code changes',
+devops: 'DevOps=culture and practices that unite development and operations;CI=automatically building and testing code on every change;CD=automatically delivering tested changes to an environment;Container=a lightweight packaged app sharing the host OS kernel;Docker image=a read-only template used to create containers;Dockerfile=a text file with instructions to build an image;Monitoring=collecting metrics and logs to see system health;Rollback=returning to a previous known-good release;Kubernetes=a system for orchestrating containers at scale;Infrastructure as Code=managing infrastructure through version-controlled definitions;Blue-green deployment=running two environments and switching traffic to cut downtime;Pipeline stage=one step in a CI/CD flow such as build, test or deploy',
+cloud: 'Cloud computing=renting computing resources over the internet;IaaS=a cloud model providing virtual machines and networks;SaaS=a cloud model delivering ready-to-use software;Region=a geographic area with cloud data centers;Object storage=a service for storing files as objects, such as S3;Elasticity=scaling resources up or down on demand;Load balancer=spreads incoming traffic across servers;IAM=controls who can access which cloud resources;Auto scaling=automatically adding or removing instances based on load;Serverless=running code without managing servers, billed per execution;Availability zone=an isolated data center location inside a region;Shared responsibility model=the provider secures the cloud while the customer secures what they put in it',
+linux: 'Linux=an open-source operating system kernel;ls=lists files in a directory;cd=changes the current directory;chmod=changes file permissions;ps=lists running processes;grep=searches text for a pattern;sudo=runs a command with administrator privileges;Pipe=sends one command output to another command as input;cron=a scheduler that runs commands at set times;Symbolic link=a file that points to another file or directory;SIGTERM=a signal that politely asks a process to terminate;/etc=the directory that usually holds system configuration files',
+ml: 'Machine learning=algorithms that learn patterns from data;Dataset=a collection of examples used to train or test a model;Feature=an input variable used by a model;Label=the correct output the model is trained to predict;pandas=a Python library for working with tabular data;Training set=data used to fit a model;Supervised learning=learning from labeled examples;Overfitting=performing well on training data but poorly on new data;Cross-validation=evaluating a model on several train and validation splits;Precision=the share of predicted positives that are truly positive;Recall=the share of actual positives that the model finds;Regularization=a penalty that discourages overly complex models',
+security: 'Confidentiality=keeping data accessible only to authorized people;Integrity=ensuring data is not altered improperly;Availability=ensuring systems are accessible when needed;Phishing=tricking people into revealing information through fake messages;Firewall=filters network traffic using rules;Encryption=scrambling data so only holders of a key can read it;Hashing=a one-way transformation often used to store passwords;Multi-factor authentication=requiring more than one proof of identity;SQL injection=inserting malicious SQL through unvalidated input;XSS=injecting malicious scripts into pages viewed by others;Least privilege=giving users only the access they need;Salting=adding random data to a password before hashing',
+net: 'IP address=a number that identifies a device on a network;DNS=translates domain names to IP addresses;DHCP=automatically assigns IP addresses to devices;Router=forwards traffic between networks;Switch=connects devices within a local network;HTTPS=HTTP traffic encrypted with TLS;TCP=a reliable, connection-oriented transport protocol;UDP=a faster transport protocol without delivery guarantees;Port=a number identifying a specific service on a host;Subnet mask=defines which part of an IP address is the network;VPN=an encrypted tunnel across a less trusted network;NAT=translates private addresses to a public address',
+general: 'Agile=iterative delivery with frequent feedback;Sprint=a fixed short period to complete planned work;Daily stand-up=a brief team sync on progress and blockers;Backlog=a prioritized list of work to do;Ticket=a record of a request or issue to be tracked;SLA=an agreement on expected response or resolution times;Pivot table=a spreadsheet tool to summarize and group data;VLOOKUP=finds a value in a table by a key;Root cause analysis=finding the underlying reason for a problem instead of the symptom;Escalation=passing an issue to a more experienced person or team;Retrospective=a team meeting to reflect on what to improve;Version control=recording changes to files so they can be tracked and restored'
+};
+const POOL = {}; Object.keys(FB).forEach(k => POOL[k] = FB[k].split(';').map((s, i) => { const [t, d] = s.split('='); return { t, d, tier: Math.floor(i / 4) }; }));
+const POOLK = { excel: 'general', support: 'general', agile: 'general' };
+const mul = a => () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+const hs = s => { let h = 2166136261; for (const c of s) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; };
+function makeQuiz(topic, skill) {
+  const key = POOL[topic] ? topic : (POOLK[topic] || 'general'), P = POOL[key], rnd = mul(hs((CU ? CU.email : '') + skill + Date.now() + Math.random()));
+  const sh = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const sk = (CU ? CU.id : '') + '|' + skill, seen = state.seen[sk] || [];
+  const pick = (tier, n) => { const c = P.filter(f => f.tier === tier); return sh(c.filter(f => !seen.includes(f.t))).concat(sh(c.filter(f => seen.includes(f.t)))).slice(0, n); };
+  const facts = [...pick(0, 4), ...pick(1, 3), ...pick(2, 3)];
+  const others = Object.keys(POOL).filter(k => k !== key).flatMap(k => POOL[k]);
+  state.seen[sk] = seen.concat(facts.map(f => f.t)).slice(-30); sj('nex_seen_' + (CU ? CU.id : ''), state.seen);
+  return facts.map(f => {
+    const rev = f.tier === 2 || (f.tier === 1 && rnd() < .5), d = sh(f.tier > 0 ? P.filter(x => x !== f) : others).slice(0, 3), o = sh([f, ...d]);
+    return rev ? { lvl: f.tier, q: 'Which term matches this description: \u201c' + f.d + '\u201d?', o: o.map(x => x.t), c: o.indexOf(f), f }
+               : { lvl: f.tier, q: 'What is \u201c' + f.t + '\u201d?', o: o.map(x => x.d), c: o.indexOf(f), f };
+  });
+}
+renderQuiz = function (card, topic) {
+  const label = card.dataset.skill, roleKey = state.role, qs = makeQuiz(topic, label), area = card.querySelector('.quiz-area'), LV = ['Easy', 'Medium', 'Hard'];
+  let i = 0, score = 0, lv = [0, 0, 0], miss = [], done = false;
+  area.hidden = false;
+  const draw = () => {
+    const q = qs[i];
+    area.innerHTML = '<div class="sq"><div class="sq-h"><b>Question ' + (i + 1) + ' of 10</b><span class="lvl l' + q.lvl + '">' + LV[q.lvl] + '</span></div><div class="track"><i style="width:' + i * 10 + '%"></i></div><p class="sq-q">' + esc(q.q) + '</p>' +
+      q.o.map((o, j) => '<button class="btn ghost sq-o" data-j="' + j + '">' + esc(o) + '</button>').join('') + '<p class="sq-fb" role="status"></p><div class="row"><button class="btn primary sq-n" hidden>' + (i === 9 ? 'See result' : 'Next question') + '</button></div></div>';
+  };
+  const finish = () => {
+    const pass = score >= 7, st = skillState(roleKey, label); st.tries++;
+    if (pass) { st.status = 'verified'; st.viaQuiz = true; st.best = Math.max(st.best || 0, score); } else if (st.status !== 'verified') st.status = 'studying';
+    saveJSON('rehearse_learn_v1', state.learn);
+    area.innerHTML = '<div class="sq"><h3>' + (pass ? 'Passed: ' + label + ' is verified' : 'Not yet: keep studying') + '</h3><p><b>' + score + '/10</b> correct. Easy ' + lv[0] + '/4, Medium ' + lv[1] + '/3, Hard ' + lv[2] + '/3. You need 7 to verify.</p>' +
+      (miss.length ? '<p><b>Revise these:</b></p><ul>' + miss.map(f => '<li><b>' + esc(f.t) + '</b>: ' + esc(f.d) + '</li>').join('') + '</ul>' : '<p>Perfect. Nothing to revise.</p>') +
+      '<div class="row"><button class="btn primary retake-btn">' + (pass ? 'Take a new check' : 'Try a new set of questions') + '</button></div></div>';
+    updateCardUI(card, label, roleKey); updateLearnMeter(); refreshAdd();
+  };
+  area.onclick = e => {
+    const b = e.target.closest('.sq-o'), n = e.target.closest('.sq-n');
+    if (n) { if (i === 9) return finish(); i++; return draw(); }
+    if (!b || area.dataset.a === i + '') return;
+    area.dataset.a = i + ''; const q = qs[i], ok = +b.dataset.j === q.c;
+    area.querySelectorAll('.sq-o').forEach((x, j) => { x.disabled = true; if (j === q.c) x.classList.add('ok'); else if (x === b) x.classList.add('no'); });
+    if (ok) { score++; lv[q.lvl]++; } else miss.push(q.f);
+    area.querySelector('.sq-fb').textContent = ok ? 'Correct!' : 'Not quite. ' + q.f.t + ': ' + q.f.d + '.';
+    area.querySelector('.sq-n').hidden = false;
+  };
+  area.dataset.a = ''; draw();
+};
+/* ---------- add developed skills to the resume ---------- */
+function verifiedSkills() { const a = state.analysis; return a ? a.kwMissing.filter(([l]) => { const s = skillState(state.role, l); return s.status === 'verified' && s.viaQuiz; }).map(([l]) => l) : []; }
+function newResume() {
+  const sk = verifiedSkills(); let t = state.text || ''; if (!sk.length) return t;
+  const line = 'Verified on Nex_Tech: ' + sk.join(', '), L = t.split('\n'), i = L.findIndex(l => /^\s*(technical skills|key skills|skills)\s*:?\s*$/i.test(l));
+  if (i >= 0) { L.splice(i + 1, 0, line); return L.join('\n'); }
+  const j = L.findIndex(l => /^\s*(technical )?skills?\s*[:\-]/i.test(l));
+  if (j >= 0) { L[j] = L[j].replace(/[\s,]*$/, '') + ', ' + sk.join(', '); return L.join('\n'); }
+  return t.trimEnd() + '\n\nSKILLS\n' + line;
+}
+function addHtml() {
+  const sk = verifiedSkills();
+  return '<div class="addcard"><h3>Add your new skills to your resume</h3>' + (sk.length ? '<p>Skills you proved with a passed check: ' + sk.map(s => '<span class="badge verified">' + esc(s) + '</span>').join(' ') + '</p><textarea readonly rows="9" aria-label="Updated resume">' + esc(newResume()) + '</textarea><div class="row" style="margin-top:8px"><button class="btn primary as-use">Use in resume review</button><button class="btn ghost as-copy">Copy</button><button class="btn ghost as-dl">Download .txt</button></div>' : '<p class="hint">Pass a 10-question check (7/10 or more) and the skill is added here automatically. Only skills you have actually proved are added.</p>') + '</div>';
+}
+function refreshAdd() { document.querySelectorAll('.add-slot').forEach(s => s.innerHTML = addHtml()); }
+document.addEventListener('click', e => {
+  const c = e.target.closest('.as-use,.as-copy,.as-dl'); if (!c) return;
+  const t = newResume();
+  if (c.classList.contains('as-copy')) { navigator.clipboard && navigator.clipboard.writeText(t); c.textContent = 'Copied'; }
+  else if (c.classList.contains('as-dl')) { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([t], { type: 'text/plain' })); a.download = 'nex_tech_updated_resume.txt'; a.click(); }
+  else { $('#text').value = t; show('resume'); say('Updated resume loaded. Choose Review my resume to re-score it.'); }
+});
+const _rl = renderLearn; renderLearn = function (a) { _rl(a); $('#view-learn').insertAdjacentHTML('beforeend', '<div class="add-slot"></div>'); refreshAdd(); };
+/* ---------- avatar video/audio interview ---------- */
+let IVM = 'both', cam = null, muted = false, tmr = null, tsec = 0, spk = null;
+const SYN = window.speechSynthesis;
+const avOn = on => $('#avatar').classList.toggle('speaking', !!on);
+function plain(h) { const d = document.createElement('div'); d.innerHTML = h; return d.textContent; }
+function speak(text) {
+  $('#iv-cap').textContent = text; clearTimeout(spk);
+  if (IVM === 'video' || muted || !SYN) { avOn(1); spk = setTimeout(() => avOn(0), Math.min(9000, words(text) * 330)); return; }
+  SYN.cancel(); const u = new SpeechSynthesisUtterance(text), vs = SYN.getVoices();
+  const v = vs.find(x => /^en/i.test(x.lang) && /female|samantha|zira|aria|jenny|google uk english female/i.test(x.name)) || vs.find(x => /^en/i.test(x.lang)); if (v) u.voice = v;
+  u.rate = .97; u.onstart = () => avOn(1);
+  u.onend = u.onerror = () => { avOn(0); if (IVM !== 'video' && SR && !listening && !$('#composer').hidden) { try { startMic(); } catch (_) {} } };
+  SYN.speak(u);
+}
+const _am = addMsg; addMsg = function (k, h, t) { const d = _am(k, h, t); if (k === 'bot') speak(plain(h)); return d; };
+async function camOn() {
+  try { cam = await navigator.mediaDevices.getUserMedia({ video: true }); $('#cam').srcObject = cam; $('#cam-off').hidden = true; }
+  catch (_) { $('#cam-off').hidden = false; $('#cam-off').textContent = 'We couldn\u2019t access your camera. Check browser permissions or choose Audio mode.'; }
+}
+function camOff() { if (cam) { cam.getTracks().forEach(t => t.stop()); cam = null; } const v = $('#cam'); if (v) { v.srcObject = null; $('#cam-off').hidden = false; $('#cam-off').textContent = 'Camera off'; } }
+const _si = startInterview;
+startInterview = function () {
+  show('interview'); const view = $('#view-interview'); view.classList.add('setup');
+  let s = $('#iv-setup'); if (!s) { s = document.createElement('div'); s.id = 'iv-setup'; view.prepend(s); }
+  const opt = (v, t, d, c) => '<label class="opt-card"><input type="radio" name="ivm" value="' + v + '"' + (c ? ' checked' : '') + '><span><b>' + t + '</b><br><span class="hint">' + d + '</span></span></label>';
+  s.innerHTML = '<h2>Choose your interview style</h2><p class="lede">Nex, your AI interviewer, asks each question in text and (unless you pick Video only) out loud. You can always type your answer.</p>' +
+    opt('audio', 'Audio', 'Nex speaks and listens. Camera stays off.') + opt('video', 'Video', 'Camera on, Nex\u2019s questions appear as captions with a silent avatar.') + opt('both', 'Audio + Video', 'A full online-interview feel: Nex speaks, you see yourself on camera.', true) +
+    '<p class="note">Your camera is only a preview on your device. Nothing is recorded or uploaded. Voice answers use your browser\u2019s speech service.</p><div class="row"><button id="iv-start" class="btn primary">Start interview</button></div>';
+  $('#iv-start').onclick = () => {
+    IVM = s.querySelector('input:checked').value; view.classList.remove('setup'); s.remove();
+    $('#c-mute').hidden = IVM === 'video'; $('#c-cam').hidden = IVM === 'audio'; $('#iv-stage .cam').style.display = IVM === 'audio' ? 'none' : ''; $('#iv-stage').style.gridTemplateColumns = IVM === 'audio' ? '1fr' : '';
+    tsec = 0; clearInterval(tmr); tmr = setInterval(() => { tsec++; $('#iv-time').textContent = Math.floor(tsec / 60) + ':' + String(tsec % 60).padStart(2, '0'); }, 1000);
+    if (IVM !== 'audio') camOn();
+    _si();
+  };
+};
+$('#c-mute').onclick = e => { muted = !muted; e.target.textContent = muted ? 'Voice off' : 'Voice on'; if (muted && SYN) SYN.cancel(); avOn(0); };
+$('#c-cam').onclick = () => cam ? camOff() : camOn();
+$('#c-rep').onclick = () => { const q = state.iv && state.iv.qs[state.iv.i]; if (q) speak(q.text); };
+$('#c-end').onclick = () => { stopMic(); if (state.iv && state.iv.results.some(Boolean)) { renderReport(); show('report'); } else show('dash'); };
+/* ---------- report: action plan + resume skills ---------- */
+const _rr = renderReport;
+renderReport = function () {
+  _rr();
+  const R = state.iv.results.filter(Boolean), tr = R.filter(r => r.q.type === 'tech' || r.q.type === 'resume'), sr = R.filter(r => r.q.type === 'intro' || r.q.type === 'behav');
+  const S = { comm: avg(R.map(r => r.comm)), conf: avg(R.map(r => r.conf)), tech: tr.length ? avg(tr.map(r => r.content)) : null, struct: sr.length ? avg(sr.map(r => r.content)) : null };
+  const weak = Object.keys(S).filter(k => S[k] !== null && S[k] < 80).sort((a, b) => S[a] - S[b]).slice(0, 3);
+  const redo = R.slice().sort((a, b) => (a.comm + a.content) - (b.comm + b.content)).slice(0, 2).map(r => '<li>Re-answer: \u201c' + esc(cut(r.q.text, 90)) + '\u201d</li>').join('');
+  const plan = weak.length ? weak.map(k => '<li><b>' + NAMES[k] + ' (' + Math.round(S[k]) + '/100):</b> ' + esc(TIPS[k][0]) + '</li>').join('') : '<li>Strong across the board. Try a harder role or a different resume next.</li>';
+  $('#view-report').insertAdjacentHTML('beforeend', '<div class="addcard" style="border-style:solid"><h3>Your action plan</h3><ol>' + plan + redo + '<li>Retake the interview in 1 to 2 days and aim to beat these scores by 10 points.</li></ol><div class="row"><button class="btn primary" id="ap-again">Practise again</button><button class="btn ghost" id="ap-learn">Open free courses</button></div></div><div class="add-slot"></div>');
+  $('#ap-again').onclick = startInterview; $('#ap-learn').onclick = () => show('learn'); refreshAdd();
+};
+/* ---------- boot ---------- */
+authMode(false);
+{ const em = lj('nex_session', null), us = lj('nex_users', {}); if (em && us[em]) enter(us[em]); else { $('#auth').hidden = false; document.querySelectorAll('.view').forEach(v => v.hidden = true); } }
+
+</script>
+<script>
+/* =========================================================
+   Nex_Tech PRD Expansion Layer — ready-to-use browser MVP
+   Extends the existing coach without requiring a build step.
+   ========================================================= */
+(function(){
+  const oldEsc = window.esc || (x=>String(x??''));
+  const q = id => document.getElementById(id);
+  const safe = x => oldEsc(x == null ? '' : String(x));
+
+  /* ---------- 20+ job roles from the PRD ---------- */
+  const roleProfiles = {
+    web:'Web Developer', frontend:'Frontend Developer', backend:'Backend Developer', fullstack:'Full Stack Developer',
+    python:'Python Developer', java:'Java Developer', software:'Software Engineer', analyst:'Data Analyst',
+    scientist:'Data Scientist', ml:'Machine Learning Engineer', ai:'AI Engineer', uiux:'UI/UX Designer',
+    pm:'Product Manager', cloud:'Cloud Engineer', devops2:'DevOps Engineer', cyber:'Cybersecurity Analyst',
+    dba:'Database Administrator', ba:'Business Analyst', mobile:'Mobile App Developer',
+    blockchain:'Blockchain Developer', technical:'Technical Support Engineer', productdesigner:'Product Designer'
+  };
+  const common = {
+    web:[['HTML/CSS','html|css'],['JavaScript','javascript|typescript'],['Responsive Design','responsive|mobile design'],['Git/GitHub','git|github'],['REST APIs','rest|api'],['React','react|angular|vue'],['Testing','testing|jest|cypress'],['Problem Solving','problem solving']],
+    frontend:[['HTML/CSS','html|css'],['JavaScript','javascript|typescript'],['React','react|angular|vue'],['Responsive Design','responsive'],['Git/GitHub','git|github'],['REST APIs','rest|api'],['Testing','testing|jest|cypress'],['Accessibility','accessibility|wcag']],
+    backend:[['Python/Java/Node','python|java|node.js|nodejs'],['REST APIs','rest|api'],['SQL','sql|mysql|postgres|sqlite'],['Git/GitHub','git|github'],['Authentication','authentication|jwt|oauth'],['Testing','testing|pytest|junit'],['Docker','docker|container'],['System Design','system design']],
+    fullstack:[['HTML/CSS','html|css'],['JavaScript','javascript|typescript'],['React','react|angular|vue'],['Node.js','node.js|nodejs|express'],['SQL','sql|mysql|postgres'],['REST APIs','rest|api'],['Git/GitHub','git|github'],['Docker','docker']],
+    python:[['Python','python'],['OOP','oop|object-oriented'],['SQL','sql|mysql|postgres|sqlite'],['Git/GitHub','git|github'],['APIs','api|rest'],['Testing','pytest|testing'],['Data Structures','data structures|algorithms|dsa'],['Problem Solving','problem solving']],
+    java:[['Java','java'],['OOP','oop|object-oriented'],['Spring Boot','spring'],['SQL','sql|mysql|postgres'],['REST APIs','rest|api'],['Git/GitHub','git|github'],['Testing','junit|testing'],['Data Structures','data structures|algorithms|dsa']],
+    software:[['Programming','python|java|c\+\+|javascript'],['Data Structures','data structures|algorithms|dsa'],['OOP','oop|object-oriented'],['SQL','sql|database'],['Git/GitHub','git|github'],['Testing','testing'],['APIs','api|rest'],['Problem Solving','problem solving']],
+    analyst:[['Excel','excel|spreadsheets'],['SQL','sql'],['Python','python'],['Statistics','statistics|statistical'],['Power BI/Tableau','power bi|tableau'],['Data Visualization','visualization|dashboard'],['Data Cleaning','data cleaning|pandas'],['Communication','communication']],
+    scientist:[['Python','python'],['Pandas/NumPy','pandas|numpy'],['Statistics','statistics'],['Machine Learning','machine learning|sklearn|scikit'],['SQL','sql'],['Data Visualization','visualization|matplotlib|seaborn'],['Jupyter','jupyter|colab'],['Problem Solving','problem solving']],
+    ml:[['Python','python'],['NumPy/Pandas','numpy|pandas'],['Machine Learning','machine learning|sklearn|scikit'],['Deep Learning','deep learning|tensorflow|pytorch'],['Statistics','statistics'],['Model Evaluation','model evaluation|precision|recall'],['Git/GitHub','git|github'],['APIs','api|rest']],
+    ai:[['Python','python'],['Machine Learning','machine learning'],['Deep Learning','deep learning|tensorflow|pytorch'],['NLP/Computer Vision','nlp|computer vision|opencv'],['APIs','api|rest'],['Git/GitHub','git|github'],['Model Evaluation','evaluation|precision|recall'],['Prompt Engineering','prompt engineering|llm']],
+    uiux:[['Figma','figma'],['Wireframing','wireframe|wireframing'],['Prototyping','prototype|prototyping'],['User Research','user research|usability'],['Interaction Design','interaction design'],['Design Systems','design system'],['Accessibility','accessibility|wcag'],['Communication','communication']],
+    pm:[['Product Strategy','product strategy|roadmap'],['User Research','user research'],['Agile/Scrum','agile|scrum'],['Requirements','requirements|prd'],['Analytics','analytics|metrics|kpi'],['Communication','communication'],['Prioritization','prioritization|moscow'],['Stakeholder Management','stakeholder']],
+    cloud:[['AWS/Azure/GCP','aws|azure|gcp|google cloud'],['Linux','linux|ubuntu|bash'],['Networking','networking|tcp|dns'],['Docker','docker|container'],['Cloud Security','cloud security'],['Git/GitHub','git|github'],['Infrastructure as Code','terraform'],['Monitoring','monitoring|prometheus|grafana']],
+    devops2:[['Linux','linux|ubuntu|bash'],['Docker','docker'],['Kubernetes','kubernetes|k8s'],['CI/CD','ci/cd|jenkins|github actions'],['Cloud','aws|azure|gcp'],['Terraform','terraform'],['Git/GitHub','git|github'],['Monitoring','monitoring|prometheus|grafana']],
+    cyber:[['Networking','networking|tcp|dns'],['Linux','linux|kali|bash'],['OWASP','owasp|web security'],['Vulnerability Assessment','vulnerability|pentest|penetration'],['SIEM','siem|splunk'],['Cryptography','cryptography|encryption'],['Incident Response','incident response'],['Security Tools','wireshark|nmap|burp']],
+    dba:[['SQL','sql|mysql|postgres|oracle'],['Database Design','database design|schema'],['Indexes','indexing|indexes'],['Backup/Recovery','backup|recovery'],['Performance Tuning','performance tuning'],['Transactions','transaction|acid'],['Linux','linux'],['Security','database security|encryption']],
+    ba:[['Requirements Gathering','requirements'],['Excel','excel'],['SQL','sql'],['Data Analysis','data analysis|analytics'],['Process Mapping','process mapping|workflow'],['Agile/Scrum','agile|scrum'],['Communication','communication'],['Stakeholder Management','stakeholder']],
+    mobile:[['Android/iOS','android|ios'],['Kotlin/Swift','kotlin|swift'],['Mobile UI','mobile ui'],['APIs','api|rest'],['Git/GitHub','git|github'],['Testing','testing'],['App Lifecycle','lifecycle'],['Responsive Design','responsive']],
+    blockchain:[['Blockchain','blockchain'],['Solidity','solidity'],['Smart Contracts','smart contract'],['Web3','web3'],['Cryptography','cryptography'],['JavaScript/TypeScript','javascript|typescript'],['Git/GitHub','git|github'],['Security','security|audit']],
+    technical:[['Troubleshooting','troubleshooting'],['Networking','networking|tcp|dns'],['Windows/Linux','windows|linux'],['Hardware','hardware'],['Ticketing','ticket|help desk|servicenow'],['Customer Support','customer service|support'],['Documentation','documentation'],['Communication','communication']],
+    productdesigner:[['Figma','figma'],['User Research','user research'],['Wireframing','wireframe'],['Prototyping','prototype'],['Design Systems','design system'],['Usability Testing','usability testing'],['Accessibility','accessibility'],['Communication','communication']]
+  };
+  const profileMap={web:'web',frontend:'frontend',backend:'backend',fullstack:'fullstack',python:'python',java:'java',software:'software',analyst:'analyst',scientist:'scientist',ml:'ml',ai:'ai',uiux:'uiux',pm:'pm',cloud:'cloud',devops2:'devops2',cyber:'cyber',dba:'dba',ba:'ba',mobile:'mobile',blockchain:'blockchain',technical:'technical',productdesigner:'productdesigner'};
+  function makeRole(label,key){
+    const kw=common[profileMap[key]||'software']||common.software;
+    const tech=[
+      (typeof Q==='function'?Q('core','What are the most important skills for a '+label+' and how have you used them?',[['Relevant skills',kw.slice(0,3).map(x=>x[0].toLowerCase()).join('|')],['Example/project','project|example|built|worked'],['Result','result|impact|improved'],['Tools','tool|technology']]):null),
+      (typeof Q==='function'?Q('problem','Describe a challenging problem related to '+label+' work and how you solved it.',[['Problem','problem|issue|challenge'],['Approach','approach|steps|analysis'],['Technical detail','technical|code|design|tool'],['Result','result|impact|improved']]):null),
+      (typeof Q==='function'?Q('behavior','Tell me about a project or task where you had to learn something quickly.',[['Situation','situation|project|task'],['Learning','learn|study|course'],['Application','used|implemented|built'],['Result','result|outcome|impact']]):null)
+    ].filter(Boolean);
+    return {label,starter:['roadmap','freecodecamp'],kw,tech};
+  }
+  if(typeof ROLES==='object') Object.keys(roleProfiles).forEach(k=>{ if(!ROLES[k]) ROLES[k]=makeRole(roleProfiles[k],k); });
+  /* custom role fallback */
+  function addCustomRole(label){
+    const key='custom_'+label.toLowerCase().replace(/[^a-z0-9]+/g,'_').slice(0,30)+'_'+Date.now();
+    ROLES[key]=makeRole(label,key); ROLES[key].custom=true; return key;
+  }
+  function refreshRoleSelect(){
+    const sel=q('role'); if(!sel) return;
+    const current=state.role;
+    sel.innerHTML=Object.entries(ROLES).map(([k,r])=>'<option value="'+safe(k)+'">'+safe(r.label)+'</option>').join('')+'<option value="__custom__">＋ Custom job role</option>';
+    sel.value=ROLES[current]?current:'dev';
+  }
+  refreshRoleSelect();
+  q('role').addEventListener('change',function(e){
+    if(e.target.value==='__custom__'){
+      const name=prompt('Enter the job role you want to target:');
+      if(name&&name.trim()){ const k=addCustomRole(name.trim()); state.role=k; refreshRoleSelect(); q('role').value=k; persistProfile(); }
+      else { q('role').value=state.role; }
+    } else { state.role=e.target.value; persistProfile(); }
+  });
+
+  /* ---------- persistent profile / resume ---------- */
+  function pkey(s){ return 'nex_profile_v2_'+(CU&&CU.id?CU.id:'guest'); }
+  function persistProfile(){
+    if(!CU) return;
+    sj(pkey(),{role:state.role,text:state.text,analysis:state.analysis,builder:window.__nexBuilder||null});
+  }
+  function hydrateProfile(){
+    if(!CU) return;
+    const p=lj(pkey(),null); if(!p) return;
+    if(p.role&&ROLES[p.role]) state.role=p.role;
+    if(p.text){state.text=p.text; if(q('text')) q('text').value=p.text;}
+    if(p.analysis){state.analysis=p.analysis; renderResults(state.analysis); renderLearn(state.analysis); q('tab-learn').disabled=false; q('tab-interview').disabled=false;}
+    refreshRoleSelect(); if(q('role')) q('role').value=state.role;
+    if(p.builder) window.__nexBuilder=p.builder;
+  }
+  hydrateProfile();
+  const analyzeBtn=q('analyze');
+  if(analyzeBtn){
+    analyzeBtn.addEventListener('click',()=>setTimeout(()=>{persistProfile(); renderDashboardExtras();},50));
+  }
+
+  /* ---------- resume builder ---------- */
+  function builderHtml(){
+    return '<div class="addcard" id="resume-builder" style="border-style:solid;margin-top:20px"><h2>Resume Builder</h2><p class="lede">No resume? Create an ATS-friendly starter resume here.</p><div class="dgrid">'+
+      [['b-name','Full name'],['b-email','Email'],['b-phone','Phone'],['b-link','LinkedIn / Portfolio'],['b-edu','Education'],['b-skills','Skills'],['b-projects','Projects'],['b-exp','Experience / Internship'],['b-certs','Certifications / Courses'],['b-ach','Achievements']].map(x=>'<label><span class="hint">'+x[1]+'</span><textarea id="'+x[0]+'" rows="2" placeholder="'+x[1]+'"></textarea></label>').join('')+
+      '</div><div class="row"><button class="btn primary" id="build-resume">Create / replace resume text</button><button class="btn ghost" id="builder-clear">Clear</button></div><p class="note">After creating it, click “Review my resume” above.</p></div>';
+  }
+  const resumeView=q('view-resume');
+  if(resumeView && !q('resume-builder')) resumeView.querySelector('.side').insertAdjacentHTML('beforeend',builderHtml());
+  function loadBuilder(){
+    const b=window.__nexBuilder||{}; Object.keys(b).forEach(k=>{const el=q(k);if(el)el.value=b[k]||'';});
+  }
+  function collectBuilder(){
+    const ids=['b-name','b-email','b-phone','b-link','b-edu','b-skills','b-projects','b-exp','b-certs','b-ach']; const b={}; ids.forEach(id=>b[id]=q(id)?.value.trim()||''); return b;
+  }
+  function makeResume(b){
+    const role=ROLES[state.role]?.label||'Target Role';
+    return [b['b-name']||'Your Name', (b['b-email']||'')+' | '+(b['b-phone']||'')+' | '+(b['b-link']||''), '', 'TARGET ROLE',role,'','SUMMARY','Motivated student/professional seeking a '+role+' opportunity.','', 'EDUCATION',b['b-edu']||'Add your education details.','', 'SKILLS',b['b-skills']||'Add relevant technical and soft skills.','', 'PROJECTS',b['b-projects']||'Add projects with action, technology and measurable result.','', 'EXPERIENCE / INTERNSHIP',b['b-exp']||'Add internship or experience details.','', 'CERTIFICATIONS / COURSES',b['b-certs']||'Add certifications and completed courses.','', 'ACHIEVEMENTS',b['b-ach']||'Add achievements.'].join('\n');
+  }
+  q('build-resume')?.addEventListener('click',()=>{window.__nexBuilder=collectBuilder(); q('text').value=makeResume(window.__nexBuilder); state.text=q('text').value; persistProfile(); say('Resume created. Now choose Review my resume.'); q('text').scrollIntoView({behavior:'smooth'});});
+  q('builder-clear')?.addEventListener('click',()=>{['b-name','b-email','b-phone','b-link','b-edu','b-skills','b-projects','b-exp','b-certs','b-ach'].forEach(id=>{if(q(id))q(id).value='';});});
+  loadBuilder();
+
+  /* ---------- richer learning progress ---------- */
+  const oldRenderLearn=renderLearn;
+  renderLearn=function(a){
+    oldRenderLearn(a);
+    document.querySelectorAll('.learn-card').forEach(card=>{
+      if(card.querySelector('.course-progress')) return;
+      const skill=card.dataset.skill, st=skillState(state.role,skill), pct=st.status==='verified'?100:st.status==='studying'?50:0;
+      const box=document.createElement('div'); box.className='course-progress'; box.style.marginTop='12px';
+      box.innerHTML='<div class="hint">Learning progress: '+pct+'%</div><div class="track"><i style="width:'+pct+'%"></i></div><div class="row"><button class="btn ghost cp-start">Mark learning started</button><button class="btn ghost cp-done">Mark completed</button></div>';
+      card.appendChild(box);
+      box.querySelector('.cp-start').onclick=()=>{setSkillStatus(state.role,skill,'studying');renderLearn(state.analysis);renderDashboardExtras();persistProfile();};
+      box.querySelector('.cp-done').onclick=()=>{setSkillStatus(state.role,skill,'verified');renderLearn(state.analysis);renderDashboardExtras();persistProfile();};
+    });
+  };
+  if(state.analysis) renderLearn(state.analysis);
+
+  /* ---------- PRD career plan tab ---------- */
+  const nav=q('tab-report');
+  if(nav){
+    const t=document.createElement('button'); t.id='tab-plan'; t.className='tab'; t.innerHTML='<span class="n">5</span>Career plan'; nav.parentNode.appendChild(t);
+    const sec=document.createElement('section'); sec.id='view-plan'; sec.className='view'; sec.hidden=true; q('main').appendChild(sec);
+    VIEWS.push('plan');
+    t.onclick=()=>show('plan');
+  }
+  function readiness(){
+    const a=state.analysis; if(!a) return 0;
+    const miss=a.kwMissing||[], verified=miss.filter(([l])=>skillState(state.role,l).status==='verified').length;
+    const skillScore=miss.length?Math.round(verified/miss.length*100):100;
+    const interview=state.history.length?Math.round(state.history[state.history.length-1].comm||0):0;
+    return Math.round((a.score*0.35)+(skillScore*0.25)+(interview*0.40));
+  }
+  function renderPlan(){
+    const a=state.analysis, miss=a?.kwMissing||[], ver=miss.filter(([l])=>skillState(state.role,l).status==='verified').length, h=state.history||[], last=h[h.length-1], r=readiness();
+    const coursePct=miss.length?Math.round(ver/miss.length*100):100;
+    q('view-plan').innerHTML='<div class="next"><h2 style="margin-bottom:4px">Career Readiness</h2><p>Your personalized plan for <b>'+safe(ROLES[state.role]?.label||'your target role')+'</b>.</p><b style="font:700 3rem var(--display)">'+r+'%</b><p>Readiness combines resume match, skill progress and interview practice. It is a practice indicator, not a hiring prediction.</p></div>'+ 
+      '<div class="dgrid"><div class="dcard"><span class="hint">Resume match</span><b class="big g">'+(a?a.score+'%':'—')+'</b></div><div class="dcard"><span class="hint">Skills learned</span><b class="big g">'+ver+'/'+miss.length+'</b></div><div class="dcard"><span class="hint">Course progress</span><b class="big g">'+coursePct+'%</b></div><div class="dcard"><span class="hint">Interview</span><b class="big g">'+(last?last.comm+'%':'—')+'</b></div></div>'+ 
+      '<div class="report-grid"><div class="sheet"><h3>Skill gap checklist</h3>'+(miss.length?'<ul>'+miss.map(([l])=>'<li>'+safe(l)+' — <b>'+(skillState(state.role,l).status==='verified'?'Completed':skillState(state.role,l).status==='studying'?'In progress':'Not started')+'</b></li>').join('')+'</ul>':'<p>No missing skills detected yet.</p>')+'</div><div class="sheet"><h3>Next actions</h3><ol><li>Keep your resume aligned with the target role.</li><li>Complete missing-skill learning and 10-question checks.</li><li>Practise a mock interview and review weak answers.</li><li>Update your resume with verified skills.</li></ol><div class="row"><button class="btn primary" id="plan-learn">Continue learning</button><button class="btn ghost" id="plan-int">Practice interview</button><button class="btn ghost" id="plan-resume">Update resume</button></div></div></div>';
+    q('plan-learn').onclick=()=>show('learn'); q('plan-int').onclick=()=>state.analysis?(state.iv?show('interview'):startInterview()):show('resume'); q('plan-resume').onclick=()=>show('resume');
+  }
+  const oldShow=show;
+  show=function(view){ oldShow(view); if(view==='plan') renderPlan(); };
+
+  /* ---------- richer dashboard ---------- */
+  function renderDashboardExtras(){
+    if(!CU||!q('view-dash')) return;
+    const a=state.analysis, miss=a?.kwMissing||[], ver=miss.filter(([l])=>skillState(state.role,l).status==='verified').length, last=(state.history||[]).slice(-1)[0];
+    const wrap=q('view-dash');
+    if(!wrap.querySelector('.prd-dashboard')){
+      wrap.insertAdjacentHTML('beforeend','<div class="prd-dashboard"><h3 style="margin-top:26px">Your career journey</h3><div class="dgrid"><div class="dcard"><span class="hint">Target role</span><b>'+safe(a?ROLES[state.role]?.label||state.role:'Not selected')+'</b></div><div class="dcard"><span class="hint">Career readiness</span><b class="big g">'+(a?readiness()+'%':'—')+'</b></div><div class="dcard"><span class="hint">Courses / skills</span><b class="big g">'+ver+'/'+miss.length+'</b></div><div class="dcard"><span class="hint">Last interview</span><b class="big g">'+(last?last.comm+'%':'—')+'</b></div></div><div class="row"><button class="btn ghost" id="dash-plan">View career plan</button><button class="btn ghost" id="dash-resume">Resume builder</button><button class="btn ghost" id="dash-report2">Career report</button></div></div>');
+      q('dash-plan').onclick=()=>show('plan'); q('dash-resume').onclick=()=>show('resume'); q('dash-report2').onclick=()=>{if(state.iv&&state.iv.results.some(Boolean)){renderReport();show('report');}else show('plan');};
+    }
+  }
+  const oldRenderDash=renderDash; renderDash=function(){ oldRenderDash(); renderDashboardExtras(); };
+  renderDashboardExtras();
+
+  /* ---------- resume update + download/print ---------- */
+  const oldRenderReport=renderReport;
+  renderReport=function(){
+    oldRenderReport();
+    const host=q('view-report'); if(!host||q('resume-update-actions')) return;
+    const box=document.createElement('div'); box.className='addcard'; box.id='resume-update-actions'; box.style.borderStyle='solid';
+    box.innerHTML='<h3>Update your resume</h3><p class="lede">Add the skills you verified in Nex_Tech to your resume text, then review it again.</p><div class="row"><button class="btn primary" id="add-verified">Add verified skills</button><button class="btn ghost" id="download-resume">Download resume text</button><button class="btn ghost" id="print-resume">Print / Save as PDF</button></div>';
+    host.appendChild(box);
+    q('add-verified').onclick=()=>{
+      const skills=(state.analysis?.kwMissing||[]).filter(([l])=>skillState(state.role,l).status==='verified').map(x=>x[0]);
+      if(!skills.length){alert('No verified new skills yet. Complete a skill check or mark learning completed.');return;}
+      let t=state.text||q('text').value||''; t += '\n\nADDITIONAL VERIFIED SKILLS\n'+skills.join(', '); state.text=t; q('text').value=t; persistProfile(); alert('Verified skills added to your resume text. Review the resume again to recalculate the match.');
+    };
+    q('download-resume').onclick=()=>{const blob=new Blob([state.text||q('text').value||''],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Nex_Tech_Resume.txt';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);};
+    q('print-resume').onclick=()=>{show('resume'); window.print();};
+  };
+
+  /* ---------- local account/data controls ---------- */
+  const ub=q('userbox');
+  if(ub && !ub.querySelector('#clear-data')){
+    const b=document.createElement('button'); b.id='clear-data'; b.className='btn ghost'; b.textContent='Clear my Nex_Tech data'; b.style.marginLeft='4px'; ub.appendChild(b);
+    b.onclick=()=>{if(!confirm('Clear this account\'s resume, progress, quiz/interview history and career data from this browser?'))return; const id=CU?.id; ['rehearse_history_v1_','rehearse_learn_v1_','nex_seen_','nex_profile_v2_'].forEach(k=>localStorage.removeItem(k+(id||''))); localStorage.removeItem('nex_session'); location.reload();};
+  }
+
+  /* Persist after navigation and make resume field survive refresh. */
+  q('text')?.addEventListener('input',()=>{state.text=q('text').value; persistProfile();});
+})();
+</script>
+
+<!-- ============================================================
+     Nex Assistant (AI chatbot) - ADDED BLOCK.
+     Everything above this comment is your original file, unchanged.
+     ============================================================ -->
+<style>
+.nxc-root{--nxg:linear-gradient(135deg,#7c3aed,#ec4899)}
+#auth:not([hidden]) ~ .nxc-root{display:none}
+.nxc-fab{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));height:48px;min-width:48px;padding:0 16px;border:0;border-radius:24px;background:var(--nxg);color:#fff;font:600 .95rem var(--body);display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;box-shadow:0 8px 22px #7c3aed66;z-index:40;transition:transform .2s,box-shadow .2s}
+.nxc-fab:hover{transform:translateY(-2px);box-shadow:0 12px 26px #7c3aed77}
+.nxc-fab:focus-visible,.nxc-ib:focus-visible{outline:3px solid #fff;outline-offset:2px;box-shadow:0 0 0 5px var(--cobalt)}
+.nxc-fab svg{width:22px;height:22px;flex:none}
+@media(max-width:600px){.nxc-fab{padding:0;width:48px}.nxc-fab span{display:none}.nxc-root.nxc-open .nxc-fab{display:none}}
+.nxc-panel{position:fixed;right:18px;bottom:calc(74px + env(safe-area-inset-bottom,0px));width:400px;max-width:calc(100vw - 24px);height:min(620px,calc(100vh - 110px));height:min(620px,calc(100dvh - 110px));background:var(--sheet);color:var(--ink);border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 60px #1a0f3a45;flex-direction:column;overflow:hidden;z-index:45;font:400 .95rem/1.5 var(--body)}
+.nxc-panel[hidden]{display:none}
+.nxc-panel:not([hidden]){display:flex}
+@media(max-width:600px){.nxc-panel{left:0;right:0;top:0;bottom:0;width:100%;max-width:none;height:100vh;height:100dvh;border-radius:0;border:0}}
+.nxc-h{display:flex;align-items:center;gap:8px;padding:12px 12px 12px 16px;padding-top:max(12px,env(safe-area-inset-top,0px));background:var(--nxg);color:#fff;flex:none}
+.nxc-ht{flex:1;min-width:0;line-height:1.25}
+.nxc-ht b{display:block;font:700 1.05rem var(--display)}
+.nxc-ht small{display:block;opacity:.9;font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nxc-ib{appearance:none;border:0;background:#ffffff26;color:#fff;width:36px;height:36px;border-radius:10px;display:grid;place-items:center;cursor:pointer;padding:0;flex:none}
+.nxc-ib:hover{background:#ffffff40}
+.nxc-ib svg{width:18px;height:18px}
+.nxc-msgs{flex:1;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--paper)}
+.nxc-m{max-width:88%;padding:9px 13px;border-radius:16px;word-wrap:break-word;overflow-wrap:anywhere;font-size:.94rem}
+.nxc-m.bot{align-self:flex-start;background:var(--sheet);border:1px solid var(--line);border-bottom-left-radius:4px}
+.nxc-m.me{align-self:flex-end;background:var(--nxg);color:#fff;border-bottom-right-radius:4px;white-space:pre-wrap}
+.nxc-m.err{border-color:var(--bad)}
+.nxc-m ul,.nxc-m ol{margin:.35rem 0;padding-left:1.25rem}
+.nxc-m li{margin:.15rem 0}
+.nxc-m p{margin:0 0 .5rem}.nxc-m p:last-child{margin-bottom:0}
+.nxc-m code{background:var(--paper);border:1px solid var(--line);border-radius:5px;padding:0 4px;font-size:.88em}
+.nxc-m a{color:var(--cobalt);text-decoration:underline}
+.nxc-acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.nxc-acts button,.nxc-chip{appearance:none;font:600 .82rem var(--body);border:1px solid var(--line);background:var(--sheet);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+.nxc-acts button:hover,.nxc-chip:hover{border-color:#7c3aed;color:#7c3aed}
+.nxc-dots{display:inline-flex;gap:4px;align-items:center;height:1em}
+.nxc-dots i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:nxcb 1s infinite ease-in-out}
+.nxc-dots i:nth-child(2){animation-delay:.15s}.nxc-dots i:nth-child(3){animation-delay:.3s}
+@keyframes nxcb{0%,80%,100%{opacity:.3;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
+@media(prefers-reduced-motion:reduce){.nxc-dots i{animation:none;opacity:.7}.nxc-fab{transition:none}}
+.nxc-chips{display:flex;gap:6px;overflow-x:auto;padding:8px 12px;border-top:1px solid var(--line);background:var(--sheet);flex:none;-webkit-overflow-scrolling:touch}
+.nxc-chips[hidden]{display:none}
+.nxc-chip{white-space:nowrap;flex:none}
+.nxc-form{display:flex;gap:8px;align-items:flex-end;padding:10px 12px;padding-bottom:max(10px,env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);background:var(--sheet);flex:none}
+.nxc-form textarea{flex:1;min-width:0;resize:none;max-height:120px;font-size:16px;line-height:1.4;border-radius:14px;padding:10px 12px}
+.nxc-send{appearance:none;border:0;width:42px;height:42px;border-radius:12px;background:var(--nxg);color:#fff;display:grid;place-items:center;cursor:pointer;flex:none;padding:0}
+.nxc-send:disabled{opacity:.5;cursor:not-allowed}
+.nxc-send svg{width:20px;height:20px}
+.nxc-set{position:absolute;left:0;right:0;bottom:0;top:0;background:var(--sheet);z-index:2;overflow-y:auto;padding:16px;padding-top:max(16px,env(safe-area-inset-top,0px))}
+.nxc-set[hidden]{display:none}
+.nxc-set h3{margin:0 0 6px}
+.nxc-set label{display:block;font-weight:600;font-size:.88rem;margin:12px 0 4px}
+.nxc-set input,.nxc-set select{width:100%;font:inherit;font-size:16px;color:inherit;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.nxc-note{font-size:.82rem;color:var(--muted);margin:6px 0 0}
+.nxc-row{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+</style>
+
+<div class="nxc-root" id="nxc-root">
+  <button id="nxc-fab" class="nxc-fab" type="button" aria-label="Open Nex assistant chat" aria-expanded="false" aria-controls="nxc-panel">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.5-4.6A8 8 0 1 1 21 12z"/><path d="M9 11h.01M12 11h.01M15 11h.01"/></svg>
+    <span>Ask Nex</span>
+  </button>
+
+  <section id="nxc-panel" class="nxc-panel" role="dialog" aria-label="Nex assistant chat" hidden>
+    <header class="nxc-h">
+      <div class="nxc-ht"><b>Nex Assistant</b><small id="nxc-mode">Career coach</small></div>
+      <button type="button" class="nxc-ib" id="nxc-gear" aria-label="Chat AI settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h0a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5h0a1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v0a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
+      <button type="button" class="nxc-ib" id="nxc-clear" aria-label="Clear chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v6M14 11v6"/></svg></button>
+      <button type="button" class="nxc-ib" id="nxc-x" aria-label="Close chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </header>
+
+    <div id="nxc-msgs" class="nxc-msgs" role="log" aria-live="polite"></div>
+    <div id="nxc-chips" class="nxc-chips"></div>
+    <form id="nxc-form" class="nxc-form" autocomplete="off">
+      <label for="nxc-in" class="sr">Message Nex</label>
+      <textarea id="nxc-in" rows="1" placeholder="Ask about your resume, interviews, skills…" enterkeyhint="send"></textarea>
+      <button type="submit" id="nxc-send" class="nxc-send" aria-label="Send message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg></button>
+    </form>
+
+    <div id="nxc-set" class="nxc-set" hidden>
+      <h3>Chat AI settings</h3>
+      <p class="nxc-note" style="margin-top:0">The built-in coach works offline with no setup. For open-ended answers, connect an AI engine.</p>
+      <label for="nxc-prov">AI engine</label>
+      <select id="nxc-prov">
+        <option value="local">Built-in coach (offline, no key)</option>
+        <option value="gemini">Google Gemini (free key available)</option>
+        <option value="anthropic">Anthropic Claude</option>
+        <option value="openai">OpenAI</option>
+        <option value="ondevice" id="nxc-od">On-device AI (load it in Resume review first)</option>
+      </select>
+      <div id="nxc-keybox">
+        <label for="nxc-key">API key</label>
+        <input id="nxc-key" type="password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Paste your key">
+        <label for="nxc-model">Model (change it if you get a model error)</label>
+        <input id="nxc-model" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+        <p class="nxc-note" id="nxc-keyhelp"></p>
+      </div>
+      <p class="nxc-note">Your key is saved only in this browser and sent only to the engine you choose. Your resume text is never sent. Only what you type in this chat, plus your role, score and missing skills, goes to the engine. Use a personal key and do not share this file with your key inside.</p>
+      <div class="nxc-row"><button type="button" id="nxc-save" class="btn primary">Save</button><button type="button" id="nxc-back" class="btn ghost">Back to chat</button></div>
+      <p id="nxc-status" class="nxc-note" role="status"></p>
+    </div>
+  </section>
+</div>
+
+<script>
+/* ===== Nex Assistant: added chatbot. Reads (never modifies) the app's ROLES / state / AI / CU objects. ===== */
+(function () {
+  'use strict';
+  const $ = (s, r) => (r || document).querySelector(s);
+  const root = $('#nxc-root'), fab = $('#nxc-fab'), panel = $('#nxc-panel'), msgs = $('#nxc-msgs'), input = $('#nxc-in'),
+    sendB = $('#nxc-send'), chips = $('#nxc-chips'), setP = $('#nxc-set'), modeEl = $('#nxc-mode'), form = $('#nxc-form');
+  if (!root) return;
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const lj = (k, f) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : f; } catch (_) { return f; } };
+  const sj = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (_) {} };
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const coarse = () => window.matchMedia && matchMedia('(pointer:coarse)').matches;
+  const isMobile = () => window.matchMedia && matchMedia('(max-width:600px)').matches;
+
+  /* ---------- settings ---------- */
+  const CFGK = 'nex_chat_cfg_v1';
+  const DEF_MODEL = { gemini: 'gemini-2.5-flash', anthropic: 'claude-sonnet-5-5', openai: 'gpt-4o-mini' };
+  const NAMES = { local: 'Built-in coach (offline)', gemini: 'Google Gemini', anthropic: 'Anthropic Claude', openai: 'OpenAI', ondevice: 'On-device AI' };
+  const HELP = {
+    gemini: 'Get a free key at <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener noreferrer">aistudio.google.com/apikey</a>.',
+    anthropic: 'Get a key at <a href="https://console.anthropic.com/" target="_blank" rel="noopener noreferrer">console.anthropic.com</a>.',
+    openai: 'Get a key at <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer">platform.openai.com/api-keys</a>.'
+  };
+  let cfg = Object.assign({ p: 'local', k: {}, m: {} }, lj(CFGK, {}));
+  cfg.k = cfg.k || {}; cfg.m = cfg.m || {};
+  const onDeviceReady = () => { try { return typeof AI !== 'undefined' && AI.ready; } catch (_) { return false; } };
+  function activeMode() {
+    if (cfg.p === 'ondevice') return onDeviceReady() ? 'ondevice' : 'local';
+    if (cfg.p !== 'local' && cfg.k[cfg.p]) return cfg.p;
+    return 'local';
+  }
+  function refreshMode() {
+    const m = activeMode();
+    modeEl.textContent = m === 'local' ? 'Offline career coach' : 'Powered by ' + NAMES[m];
+  }
+
+  /* ---------- app context (read-only) ---------- */
+  function ctx() {
+    const c = { role: '', a: null, hist: [], name: '' };
+    try { c.role = ROLES[state.role].label || ''; } catch (_) {}
+    try { c.a = state.analysis || null; } catch (_) {}
+    try { c.hist = state.history || []; } catch (_) {}
+    try { c.name = (CU && CU.name) ? CU.name.split(' ')[0] : ''; } catch (_) {}
+    return c;
+  }
+  function systemPrompt() {
+    const c = ctx(); let s = 'You are Nex, the friendly assistant inside Nex_Tech, a web app that helps IT students and freshers with resume review (ATS-style score), learning missing skills, and mock interviews. ' +
+      'Help with careers, resumes, interviews, job search, and learning IT skills. Be concise (under 150 words unless asked for more), practical and encouraging, and use short lists when useful. ' +
+      'Never invent the user\'s experience, and never guarantee jobs. If asked about something unrelated, answer briefly and steer back to their career. Reply in the language the user writes in.';
+    const bits = [];
+    if (c.name) bits.push('First name: ' + c.name);
+    if (c.role) bits.push('Target role: ' + c.role);
+    if (c.a) {
+      bits.push('Resume score: ' + c.a.score + '/100');
+      if (c.a.kwMissing && c.a.kwMissing.length) bits.push('Missing role keywords: ' + c.a.kwMissing.slice(0, 8).map(k => k[0]).join(', '));
+    }
+    if (c.hist.length) bits.push('Mock interviews completed: ' + c.hist.length);
+    if (bits.length) s += '\nApp context about this user: ' + bits.join('; ') + '.';
+    return s;
+  }
+
+  /* ---------- message formatting (safe: escapes first) ---------- */
+  function inline(t) {
+    return t.replace(/`([^`]+)`/g, '<code>$1</code>')
+      .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
+      .replace(/(https?:\/\/[^\s<)]+[^\s<).,;:!?])/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
+  }
+  function fmt(text) {
+    const lines = esc(text).split('\n'); let out = '', list = null;
+    const close = () => { if (list) { out += '</' + list + '>'; list = null; } };
+    for (const raw of lines) {
+      const ul = raw.match(/^\s*[-*\u2022]\s+(.*)$/), ol = raw.match(/^\s*\d+[.)]\s+(.*)$/);
+      if (ul || ol) {
+        const want = ul ? 'ul' : 'ol';
+        if (list !== want) { close(); out += '<' + want + '>'; list = want; }
+        out += '<li>' + inline((ul || ol)[1]) + '</li>';
+      } else {
+        close();
+        if (raw.trim()) out += '<p>' + inline(raw) + '</p>';
+      }
+    }
+    close(); return out;
+  }
+
+  /* ---------- built-in offline coach ---------- */
+  const T = id => ['Open ' + ({ 'tab-resume': 'Resume review', 'tab-learn': 'Learn what\u2019s missing', 'tab-interview': 'Mock interview', 'tab-report': 'My report', 'tab-dash': 'Dashboard' }[id]), id];
+  const R = (t, ...a) => ({ t, a: a.map(T) });
+  function scoreReply() {
+    const c = ctx();
+    if (!c.a) return R('You haven\u2019t run a resume review yet. Paste or upload your resume, pick a target role, and choose **Review my resume**. You\u2019ll get a score, what works, what to fix, and comments on individual lines.', 'tab-resume');
+    const miss = (c.a.kwMissing || []).map(k => k[0]), found = (c.a.kwFound || []).length;
+    let t = 'Your resume scores **' + c.a.score + '/100**' + (c.role ? ' for ' + c.role : '') + '. ' + found + ' role keyword' + (found === 1 ? '' : 's') + ' found.';
+    if (miss.length) t += '\nMissing keywords: ' + miss.slice(0, 6).join(', ') + '. Add a skill only if you have really used it, and back it up in a project bullet.\nNext: study the gaps in **Learn what\u2019s missing**, then practise in the mock interview.';
+    else t += '\nNo keywords missing. Now prove them in the mock interview.';
+    return R(t, 'tab-resume', miss.length ? 'tab-learn' : 'tab-interview');
+  }
+  function learnReply(q) {
+    const c = ctx();
+    if (c.a && c.a.kwMissing && c.a.kwMissing.length) {
+      return R('Based on your review, focus on: ' + c.a.kwMissing.slice(0, 8).map(k => '**' + k[0] + '**').join(', ') + '.\nOpen **Learn what\u2019s missing** for a free course per skill and a 10-question check that marks each one verified.', 'tab-learn');
+    }
+    let match = null;
+    try { match = Object.values(ROLES).find(r => r.label && q.includes(r.label.toLowerCase())); } catch (_) {}
+    if (!match) { try { match = ROLES[state.role]; } catch (_) {} }
+    if (match && match.kw && match.label) {
+      return R('Skills employers usually look for in **' + match.label + '** roles:\n' + match.kw.slice(0, 10).map(k => '- ' + k[0]).join('\n') + '\nFor a step-by-step path, see https://roadmap.sh/. Run a **Resume review** to see which of these are actually missing from your resume.', 'tab-resume');
+    }
+    return R('Run a **Resume review** first and I\u2019ll show which skills are missing for your target role. For a general path, roadmap.sh has step-by-step roadmaps: https://roadmap.sh/', 'tab-resume');
+  }
+  const KB = [
+    [/^(hi+|hello+|hey+|hola|namaste|good (morning|afternoon|evening))\b/, () => R('Hi' + (ctx().name ? ' ' + ctx().name : '') + '! I\u2019m Nex. I can help with your resume, interview answers and what to learn next. What would you like to do?')],
+    [/\b(thanks|thank you|thx|ty)\b/, () => R('You\u2019re welcome! Ask me anything else about your resume or interviews.')],
+    [/\b(bye|goodbye|see you)\b/, () => R('Good luck! Come back any time.')],
+    [/how (does|do) (this|it|the app)|how (to|do i) use|what can you do|what do you do|features|get started|where (do|should) i start|what is (this|nex)|\bhelp\b/, () => R('Here\u2019s how Nex_Tech works:\n1. **Resume review**: paste or upload your resume, pick a role, and get an ATS-style score with line-by-line comments.\n2. **Learn what\u2019s missing**: free courses for skills your resume lacks, plus a 10-question check.\n3. **Mock interview**: practise with the AI interviewer by typing, voice or video.\n4. **Your report**: scores and an action plan.\nStart with Resume review.', 'tab-resume', 'tab-interview')],
+    [/(my|the) (resume )?(score|result|analysis|review)|\bats score|how (am i|did i) do|is my resume good/, scoreReply],
+    [/what (should|do|can) i learn|learn next|missing (skills?|keywords?)|skill gap|upskill|roadmap|which skills|skills? (do )?i need/, (q) => learnReply(q)],
+    [/tell me about yourself|introduce yourself|self[- ]?introduction|\bintro(duction)?\b/, () => R('A simple 4-part answer (60 to 90 seconds):\n1. **Who you are**: degree, college, year.\n2. **What you can do**: 1 or 2 projects and the tools you used.\n3. **Proof**: one result or number (users, time saved, rank).\n4. **Why this role**: connect it to the company.\nExample: \u201cI\u2019m a final-year B.Tech CS student. I built a REST API in Node and SQL used by 300 students. I enjoy backend work, which is why this role excites me.\u201d\nPractise it out loud in the mock interview.', 'tab-interview')],
+    [/\bstar\b|behaviou?ral|situation.*task.*action/, () => R('Use **STAR** for behavioural questions:\n- **Situation**: one line of context.\n- **Task**: what you were responsible for.\n- **Action**: what *you* did, step by step (spend most of your time here).\n- **Result**: the outcome, ideally with a number, and what you learned.\nSay \u201cI\u201d instead of \u201cwe\u201d, and keep it under 2 minutes.', 'tab-interview')],
+    [/weakness/, () => R('Pick a real, minor weakness, then show what you are doing about it:\n- Name it honestly (e.g. \u201cI used to jump into coding before planning\u201d).\n- Give a quick example.\n- Explain your fix (e.g. \u201cnow I write a short plan and test cases first\u201d).\nAvoid clich\u00e9s like \u201cI\u2019m a perfectionist\u201d.')],
+    [/strength/, () => R('Choose 2 strengths that fit the role, and back each with a one-line example. Example: \u201cI learn fast. I picked up React in 3 weeks and shipped my project.\u201d Proof matters more than adjectives.')],
+    [/why (should|do|would) (we|you|i) (hire|want|select)|why hire|why should we/, () => R('Give three points:\n1. **Skills match**: name 2 or 3 skills from the job description that you have used.\n2. **Proof**: one project or result.\n3. **Attitude**: you learn quickly and take feedback well.\nKeep it under a minute and tie it to what the company does.')],
+    [/salary|\bctc\b|package|negotiat|expected pay/, () => R('For freshers:\n- Research the typical range for the role and city (AmbitionBox, Glassdoor).\n- If asked, say: \u201cI\u2019m flexible and looking for a good learning opportunity. What is the budgeted range for this role?\u201d\n- Negotiate politely after you have an offer, not before.\n- Compare the whole package: learning, growth, and location, not just the number.')],
+    [/(questions?|what) (to|should i|can i) ask (the )?(interviewer|them|hr)|ask the interviewer|questions for (the )?interviewer/, () => R('Good questions to ask:\n- \u201cWhat would success look like in the first 3 months?\u201d\n- \u201cWhat tech stack and tools does the team use?\u201d\n- \u201cHow are freshers mentored and reviewed?\u201d\n- \u201cWhat are the next steps in the process?\u201d\nSave salary and leave questions for later rounds.')],
+    [/nervous|anxious|anxiety|scared|fear|stage fright|confiden|panic|blank out|freeze/, () => R('Nerves are normal. Try this:\n- Prepare 5 core stories (project, teamwork, challenge, failure, achievement).\n- Practise out loud. The mock interview is built for this.\n- Pause and breathe before answering. It\u2019s fine to say, \u201cLet me think for a moment.\u201d\n- If you blank, say what you do know, then how you would find out the rest.\nConfidence comes from repetition.', 'tab-interview')],
+    [/video interview|webcam|camera|online interview|zoom|google meet|\bteams call/, () => R('Video interview checklist:\n- Camera at eye level, light in front of you, quiet room.\n- Test mic and internet 10 minutes early.\n- Look at the camera when you speak.\n- Keep your resume and a glass of water nearby.\n- Dress neatly, even for a home interview.\nOn Nex_Tech, allow camera and mic when the browser asks.', 'tab-interview')],
+    [/\bhr (round|interview|questions?)|common (interview )?questions/, () => R('Common HR questions:\n- Tell me about yourself\n- Strengths and weaknesses\n- Why this company and role?\n- Where do you see yourself in 5 years?\n- Are you open to relocation or shifts?\n- Why should we hire you?\nResearch the company, be honest, and stay consistent with your resume.', 'tab-interview')],
+    [/technical (round|interview)|coding (round|interview)|\bdsa\b|leetcode|data structures|algorithms?|problem solving/, () => R('For technical rounds:\n- Revise arrays, strings, hash maps, recursion, sorting and searching, plus SQL, OOP, OS and networking basics.\n- Be ready to explain your own project\u2019s design.\n- Think aloud: start with a brute-force idea, then optimise, and state the time complexity.\nFree practice: NeetCode https://neetcode.io/ and CS50 https://cs50.harvard.edu/x/', 'tab-interview')],
+    [/projects?\b|portfolio ideas|project ideas/, () => R('On your resume, list 2 or 3 projects. For each, include:\n- The problem it solves\n- Tech stack\n- Your role\n- One measurable outcome\n- A GitHub or live link\nIdeas: a full-stack app with login, a REST API with a database, a dashboard with charts, an automation script, a small chatbot. Deploy at least one so people can open it.')],
+    [/summary|objective|career objective/, () => R('Write a 2 to 3 line summary: who you are, your top skills, and the role you want. Avoid generic words like \u201chard working\u201d.\nExample: \u201cFinal-year CS student skilled in Java, SQL and React. Built a REST API used by 300+ students. Seeking a software developer role.\u201d', 'tab-resume')],
+    [/action verb|bullet|achievement|quantif|metric|numbers?\b|impact|describe my/, () => R('Write each bullet as **did X using Y, resulting in Z**. Start with a strong verb (Built, Designed, Automated, Reduced, Optimised) and add a number.\nExample: \u201cBuilt REST APIs used by 300+ students, reducing manual attendance work by 40%\u201d.\nAvoid vague phrases like \u201cworked on\u201d or \u201cresponsible for\u201d.', 'tab-resume')],
+    [/format|template|one page|1 page|how long|length|pages|font|layout|design/, () => R('ATS-friendly format for freshers:\n- One page, single column, no tables, images or graphics.\n- Standard headings: Summary, Education, Skills, Projects, Experience, Certifications.\n- Readable font (10 to 12 pt), consistent dates.\n- Save as PDF unless the employer asks for Word, named like Name_Role.pdf.', 'tab-resume')],
+    [/keyword|\bats\b|applicant tracking/, () => R('To pass ATS filters:\n- Mirror the job description\u2019s skills, but only ones you have really used.\n- Put them in both your Skills section and your project bullets.\n- Spell out abbreviations once (e.g. Structured Query Language (SQL)).\n- Use plain formatting.\nRun a **Resume review** to see which role keywords you\u2019re missing.', 'tab-resume')],
+    [/github|linkedin|portfolio|profile/, () => R('Polish your profiles:\n- **GitHub**: pin your best 3 to 4 repos, each with a clear README and screenshots.\n- **LinkedIn**: headline with your target role and skills, a short About section, and your projects listed.\n- Link both on your resume.')],
+    [/certificat|course|\baws\b|cloud/, () => R('Projects matter more than certificates, but a relevant one helps. For cloud, try the free AWS Cloud Practitioner Essentials: https://aws.amazon.com/training/digital/aws-cloud-practitioner-essentials/. List only certificates that match your target role.')],
+    [/fresher|no experience|internship|first job|campus|placement|entry[- ]level/, () => R('With no experience, show proof instead:\n- 2 or 3 solid projects with results\n- Internships, hackathons, open-source or freelance work\n- Relevant coursework and certificates\n- Referrals: message alumni and seniors politely\nApply widely, tailor your resume to each role, and practise interviews regularly.', 'tab-resume', 'tab-interview')],
+    [/cover letter|follow.?up|cold (mail|email)|email (to|for)|referral/, () => R('Keep the email short (4 to 6 lines): the role you\u2019re applying for, 1 or 2 strengths with proof, your resume attached or linked, and a thank-you. If you hear nothing, follow up politely after about a week.')],
+    [/career gap|gap year|\bgap\b|backlog/, () => R('Be honest and brief. Say what happened in one line, then show what you did or learned during that time (courses, projects, freelance). Focus the conversation on what you can do now.')],
+    [/resume|\bcv\b/, () => R('Quick resume wins:\n1. Keep it to one page with clear headings.\n2. Write a 2 to 3 line summary with your target role.\n3. Put role keywords in Skills and in your project bullets.\n4. Use numbers in bullets (users, time saved, accuracy).\n5. Link GitHub and LinkedIn.\nWant a detailed score? Run a **Resume review**.', 'tab-resume')]
+  ];
+  function localReply(text) {
+    const q = text.toLowerCase().trim();
+    for (const [re, fn] of KB) { if (re.test(q)) return fn(q); }
+    return R('I\u2019m not sure how to answer that offline. I can help with resume tips, interview answers (like \u201ctell me about yourself\u201d), what to learn next, and how to use this app.\nFor open-ended questions, connect an AI engine in \u2699\ufe0f settings (Google Gemini has a free key) and I\u2019ll answer anything career-related.');
+  }
+
+  /* ---------- cloud engines ---------- */
+  async function post(url, headers, body) {
+    const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), 40000);
+    try {
+      const r = await fetch(url, { method: 'POST', headers: Object.assign({ 'Content-Type': 'application/json' }, headers), body: JSON.stringify(body), signal: ctl.signal });
+      let d = null; try { d = await r.json(); } catch (_) {}
+      if (!r.ok) throw new Error((d && d.error && (d.error.message || d.error)) || ('HTTP ' + r.status));
+      return d;
+    } catch (e) {
+      if (e.name === 'AbortError') throw new Error('The request timed out.');
+      if (e instanceof TypeError) throw new Error('Could not reach the server. Check your internet connection.');
+      throw e;
+    } finally { clearTimeout(timer); }
+  }
+  async function cloud(mode, text) {
+    const sys = systemPrompt(), key = cfg.k[mode], model = (cfg.m[mode] || DEF_MODEL[mode] || '').trim();
+    const h = log.slice(-12).map(m => ({ role: m.r === 'me' ? 'user' : 'assistant', content: m.c }));
+    h.push({ role: 'user', content: text });
+    if (mode === 'anthropic') {
+      const d = await post('https://api.anthropic.com/v1/messages', { 'x-api-key': key, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' }, { model, max_tokens: 700, system: sys, messages: h });
+      return (d.content || []).map(b => b.text || '').join('').trim();
+    }
+    if (mode === 'openai') {
+      const d = await post('https://api.openai.com/v1/chat/completions', { Authorization: 'Bearer ' + key }, { model, messages: [{ role: 'system', content: sys }].concat(h) });
+      return ((d.choices && d.choices[0] && d.choices[0].message && d.choices[0].message.content) || '').trim();
+    }
+    if (mode === 'gemini') {
+      const d = await post('https://generativelanguage.googleapis.com/v1beta/models/' + encodeURIComponent(model) + ':generateContent?key=' + encodeURIComponent(key), {}, {
+        systemInstruction: { parts: [{ text: sys }] },
+        contents: h.map(m => ({ role: m.role === 'user' ? 'user' : 'model', parts: [{ text: m.content }] }))
+      });
+      const p = d.candidates && d.candidates[0] && d.candidates[0].content && d.candidates[0].content.parts;
+      return (p || []).map(x => x.text || '').join('').trim();
+    }
+    if (mode === 'ondevice') {
+      const past = log.slice(-4).map(m => (m.r === 'me' ? 'User: ' : 'Nex: ') + m.c.slice(0, 300)).join('\n');
+      return await AI.ask(sys, (past ? past + '\n' : '') + 'User: ' + text);
+    }
+    throw new Error('Unknown engine.');
+  }
+
+  /* ---------- chat state + rendering ---------- */
+  let log = [], loadedFor = null, busy = false;
+  const logKey = () => { let id = 'guest'; try { if (CU && CU.id) id = CU.id; } catch (_) {} return 'nex_chat_v1_' + id; };
+  function scrollDown() { msgs.scrollTop = msgs.scrollHeight; }
+  function addMsg(role, text, acts, cls) {
+    const d = document.createElement('div'); d.className = 'nxc-m ' + role + (cls ? ' ' + cls : '');
+    if (role === 'me') d.textContent = text; else d.innerHTML = fmt(text);
+    const usable = (acts || []).filter(a => { const b = document.getElementById(a[1]); return b && !b.disabled; });
+    if (usable.length) {
+      const w = document.createElement('div'); w.className = 'nxc-acts';
+      usable.forEach(([label, id]) => {
+        const b = document.createElement('button'); b.type = 'button'; b.textContent = label;
+        b.onclick = () => { const t = document.getElementById(id); if (t && !t.disabled) t.click(); if (isMobile()) closePanel(); };
+        w.appendChild(b);
+      });
+      d.appendChild(w);
+    }
+    msgs.appendChild(d); scrollDown(); return d;
+  }
+  function typing() {
+    const d = document.createElement('div'); d.className = 'nxc-m bot';
+    d.innerHTML = '<span class="nxc-dots" role="status" aria-label="Nex is typing"><i></i><i></i><i></i></span>';
+    msgs.appendChild(d); scrollDown(); return d;
+  }
+  function welcome() {
+    const c = ctx(), m = activeMode();
+    let t = 'Hi' + (c.name ? ' ' + c.name : '') + '! \ud83d\udc4b I\u2019m Nex, your career assistant. Ask me about your resume, interview answers, or what to learn next.';
+    if (m === 'local') t += '\nI\u2019m running in offline mode. Tap \u2699\ufe0f to connect an AI engine for open-ended answers.';
+    addMsg('bot', t);
+  }
+  const CHIPS = ['Improve my resume', 'Tell me about yourself', 'What should I learn?', 'Interview tips', 'How does this app work?'];
+  const CHIPQ = { 'Interview tips': 'How do I handle interview nerves?' };
+  function renderChips() {
+    chips.innerHTML = '';
+    CHIPS.forEach(t => { const b = document.createElement('button'); b.type = 'button'; b.className = 'nxc-chip'; b.textContent = t; b.onclick = () => send(CHIPQ[t] || t); chips.appendChild(b); });
+    chips.hidden = log.length > 0;
+  }
+  function loadLog() {
+    const k = logKey(); if (loadedFor === k) return;
+    loadedFor = k; log = lj(k, []); if (!Array.isArray(log)) log = [];
+    if (log.length % 2) log = log.slice(1);
+    msgs.innerHTML = ''; welcome(); log.forEach(m => addMsg(m.r, m.c));
+    renderChips();
+  }
+  function persist() { log = log.slice(-30); sj(logKey(), log); }
+
+  async function send(text) {
+    text = String(text || '').trim(); if (!text || busy) return;
+    busy = true; sendB.disabled = true; chips.hidden = true;
+    addMsg('me', text); input.value = ''; autosize();
+    const t = typing(); let reply = '', acts = [];
+    const mode = activeMode();
+    try {
+      if (mode === 'local') { await sleep(300); const r = localReply(text); reply = r.t; acts = r.a; }
+      else {
+        reply = await cloud(mode, text);
+        if (!reply) throw new Error('The engine returned an empty reply.');
+      }
+    } catch (e) {
+      const r = localReply(text); reply = r.t; acts = r.a;
+      t.remove();
+      addMsg('bot', '\u26a0\ufe0f ' + NAMES[mode] + ' error: ' + (e && e.message ? e.message : e) + '\nHere\u2019s an offline answer instead:', null, 'err');
+    }
+    t.remove();
+    addMsg('bot', reply, acts);
+    log.push({ r: 'me', c: text }, { r: 'bot', c: reply }); persist();
+    busy = false; sendB.disabled = false;
+    if (!coarse()) input.focus();
+  }
+
+  /* ---------- open / close ---------- */
+  function fitViewport() {
+    const vv = window.visualViewport;
+    if (!vv || !isMobile() || panel.hidden) { panel.style.height = ''; panel.style.top = ''; panel.style.bottom = ''; return; }
+    panel.style.height = vv.height + 'px'; panel.style.top = vv.offsetTop + 'px'; panel.style.bottom = 'auto';
+    scrollDown();
+  }
+  function openPanel() {
+    loadLog(); refreshMode();
+    panel.hidden = false; root.classList.add('nxc-open'); fab.setAttribute('aria-expanded', 'true');
+    fitViewport(); scrollDown(); if (!coarse()) input.focus();
+  }
+  function closePanel() {
+    panel.hidden = true; setP.hidden = true; root.classList.remove('nxc-open'); fab.setAttribute('aria-expanded', 'false'); fitViewport();
+    if (!isMobile()) fab.focus();
+  }
+  fab.onclick = () => (panel.hidden ? openPanel() : closePanel());
+  $('#nxc-x').onclick = closePanel;
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !panel.hidden) closePanel(); });
+  if (window.visualViewport) { visualViewport.addEventListener('resize', fitViewport); visualViewport.addEventListener('scroll', fitViewport); }
+  window.addEventListener('resize', fitViewport);
+  $('#nxc-clear').onclick = () => {
+    if (log.length && !confirm('Clear this chat?')) return;
+    log = []; persist(); msgs.innerHTML = ''; welcome(); renderChips();
+  };
+
+  /* ---------- composer ---------- */
+  function autosize() { input.style.height = 'auto'; input.style.height = Math.min(input.scrollHeight, 120) + 'px'; }
+  input.addEventListener('input', autosize);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey && !e.isComposing && !coarse()) { e.preventDefault(); send(input.value); } });
+  form.addEventListener('submit', e => { e.preventDefault(); send(input.value); });
+
+  /* ---------- settings panel ---------- */
+  const prov = $('#nxc-prov'), keyBox = $('#nxc-keybox'), keyIn = $('#nxc-key'), modelIn = $('#nxc-model'), help = $('#nxc-keyhelp'), status = $('#nxc-status');
+  function syncSettingsUI() {
+    const p = prov.value, cloudP = p === 'gemini' || p === 'anthropic' || p === 'openai';
+    keyBox.hidden = !cloudP;
+    if (cloudP) { keyIn.value = cfg.k[p] || ''; modelIn.value = cfg.m[p] || DEF_MODEL[p]; help.innerHTML = HELP[p]; }
+  }
+  $('#nxc-gear').onclick = () => {
+    $('#nxc-od').disabled = !onDeviceReady();
+    prov.value = (cfg.p === 'ondevice' && !onDeviceReady()) ? 'local' : cfg.p; status.textContent = ''; syncSettingsUI(); setP.hidden = false;
+  };
+  prov.onchange = syncSettingsUI;
+  $('#nxc-back').onclick = () => { setP.hidden = true; if (!coarse()) input.focus(); };
+  $('#nxc-save').onclick = () => {
+    const p = prov.value;
+    if (p === 'gemini' || p === 'anthropic' || p === 'openai') {
+      const k = keyIn.value.trim();
+      if (!k) { status.textContent = 'Please paste an API key, or choose the built-in coach.'; return; }
+      cfg.k[p] = k; cfg.m[p] = modelIn.value.trim() || DEF_MODEL[p];
+    }
+    cfg.p = p; sj(CFGK, cfg); refreshMode();
+    status.textContent = 'Saved. Now using: ' + NAMES[activeMode()] + '.';
+    setTimeout(() => { setP.hidden = true; }, 700);
+  };
+
+  refreshMode();
+})();
+</script>
+
+</body>
+</html>
